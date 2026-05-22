@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição · 29.08.2026</title>
+<meta name="description" content="3ª edição da Imersão Clínica EPM — TDAH na era digital. Um dia inteiro de raciocínio clínico com Arthur Berberian e Bruna Trevisan. 29 de agosto de 2026, São Paulo." />
+
+<meta property="og:title" content="Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição" />
+<meta property="og:description" content="29 de agosto de 2026, São Paulo. Um dia inteiro de raciocínio clínico aplicado ao TDAH na era digital." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/hero-bruna.webp" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+/* ============ HERO V4 — fundo bundle + tipografia V3, CTA à direita ============ */
+
+/* Mosaico: 3 colunas lado-a-lado em uma única linha (como no bundle) */
+#hero .hero-mosaic{
+  grid-template-columns:1.5fr 1fr 1fr !important;
+  grid-template-rows:1fr !important;
+  gap:2px;
+}
+#hero .hero-mosaic .ph{
+  grid-column:auto !important;
+  grid-row:auto !important;
+  -webkit-mask-image:none !important;
+  mask-image:none !important;
+}
+#hero .hero-mosaic .ph img{
+  filter:brightness(1.05) saturate(1.08) !important;  /* mantém cor viva do bundle */
+}
+/* Desativa as máscaras radiais que estavam apagando as imagens centrais */
+#hero .hero-mosaic .ph::before,
+#hero .hero-mosaic .ph::after{
+  background:
+    linear-gradient(to right, var(--noite) 0%, transparent 22%),
+    linear-gradient(to left,  var(--noite) 0%, transparent 22%),
+    linear-gradient(to bottom,var(--noite) 0%, transparent 18%),
+    linear-gradient(to top,   var(--noite) 0%, transparent 22%) !important;
+  opacity:1 !important;
+  mix-blend-mode:normal !important;
+}
+#hero .hero-mosaic .ph::after{ display:none !important; }
+
+/* Reenquadra cada cela para mostrar as cabeças/rostos */
+#hero .hero-mosaic .ph:nth-child(1) img{ object-position:50% 30% !important; }
+#hero .hero-mosaic .ph:nth-child(2) img{ object-position:50% 22% !important; }
+#hero .hero-mosaic .ph:nth-child(3) img{ object-position:55% 28% !important; }
+
+/* Reduz o fade-out escuro que estava cobrindo texto + CTA no rodapé do hero */
+#hero .hero-overlay{
+  background:linear-gradient(180deg,
+    rgba(11,18,32,0.25) 0%,
+    rgba(11,18,32,0.30) 38%,
+    rgba(11,18,32,0.45) 70%,
+    rgba(11,18,32,0.55) 100%) !important;
+}
+#hero .hero-vignette{
+  background:radial-gradient(ellipse 60% 40% at 25% 80%, rgba(11,18,32,0.45) 0%, transparent 75%) !important;
+}
+
+/* === Tipografia V3 dentro do hero V4 === */
+#hero .hero-content{
+  justify-content:flex-end !important;
+  padding-bottom:128px !important;   /* sobe o bloco do rodapé do hero */
+}
+#hero .hero-meta{
+  margin-top:32px !important;        /* aproxima a linha de meta + CTA do bloco de texto */
+}
+.hero-display-lockup{
+  margin:0 0 22px;color:var(--off-white);
+  display:flex;flex-direction:column;gap:0;
+}
+.hero-display-tdah{
+  display:block;font-family:var(--font-body);font-weight:800;
+  font-size:clamp(46px, 12vw, 168px);line-height:0.82;
+  letter-spacing:-0.065em;text-transform:uppercase;
+  text-shadow:0 4px 32px rgba(11,18,32,0.7);
+  margin-bottom:-0.04em;
+}
+.hero-display-era{
+  display:block;font-family:var(--font-display);
+  font-style:italic;font-weight:500;
+  font-size:clamp(42px, 7vw, 92px);line-height:0.95;
+  letter-spacing:-0.04em;color:var(--areia);
+  text-shadow:0 2px 24px rgba(11,18,32,0.7);
+  margin-top:6px;
+}
+.hero-v4-subtitle{
+  margin:28px 0 0;max-width:760px;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(22px, 2.6vw, 34px);line-height:1.18;
+  letter-spacing:-0.022em;color:var(--off-white);
+  text-shadow:0 1px 16px rgba(11,18,32,0.6);
+}
+.hero-v4-support{
+  margin:18px 0 0;max-width:680px;padding-left:18px;
+  border-left:2px solid var(--terracota);
+  font-size:clamp(15px, 1.25vw, 18px);line-height:1.55;color:var(--azul-cinza);
+}
+
+/* ============ MANIFESTO V2 — pausa editorial após a Hero ============ */
+#manifesto{
+  text-align:left !important;
+  padding:clamp(96px, 14vh, 160px) var(--container-padding-desktop) !important;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.manifesto-v2 .overline{
+  margin:0 0 clamp(48px, 7vh, 88px);
+}
+.manifesto-v2 .manifesto-grid{
+  display:grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap:clamp(48px, 8vw, 120px);
+  align-items:start;
+}
+.manifesto-v2 .manifesto-title{
+  margin:0;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(36px, 5.2vw, 76px);
+  line-height:1.04;letter-spacing:-0.022em;
+  color:var(--off-white);text-wrap:pretty;
+}
+.manifesto-v2 .manifesto-title .line{display:block;}
+.manifesto-v2 .manifesto-claim{
+  margin:clamp(32px, 4vh, 48px) 0 0;
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(40px, 5.8vw, 84px);
+  line-height:1.0;letter-spacing:-0.028em;
+  color:var(--areia);text-wrap:pretty;
+}
+.manifesto-v2 .manifesto-rule{
+  width:64px;height:2px;background:var(--terracota);
+  margin:clamp(40px, 5vh, 64px) 0 clamp(32px, 4vh, 48px);
+}
+.manifesto-v2 .manifesto-body{
+  margin:0 0 22px;max-width:620px;
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(17px, 1.45vw, 21px);line-height:1.6;letter-spacing:0;
+  color:var(--azul-cinza);
+}
+.manifesto-v2 .manifesto-body:last-of-type{margin-bottom:0;}
+.manifesto-v2 .manifesto-close{
+  margin:clamp(32px, 4vh, 48px) 0 0;max-width:620px;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(18px, 1.55vw, 22px);line-height:1.45;letter-spacing:-0.005em;
+  color:var(--areia);
+}
+
+/* Nota de pesquisa */
+.manifesto-v2 .manifesto-card{
+  position:sticky; top:calc(var(--topbar-h) + 32px);
+  padding:clamp(28px, 3vw, 40px) clamp(28px, 2.5vw, 36px);
+  border:1px solid rgba(224,199,163,0.18);
+  background:rgba(11,18,32,0.4);
+  display:flex;flex-direction:column;
+  gap:clamp(28px, 3.5vh, 40px);
+}
+.manifesto-v2 .mf-item{
+  display:flex;flex-direction:column;gap:10px;
+}
+.manifesto-v2 .mf-item + .mf-item{
+  padding-top:clamp(28px, 3.5vh, 40px);
+  border-top:1px solid rgba(224,199,163,0.12);
+}
+.manifesto-v2 .mf-label{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:500;
+  letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--terracota-claro);
+}
+.manifesto-v2 .mf-text{
+  margin:0;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(18px, 1.55vw, 22px);line-height:1.32;letter-spacing:-0.008em;
+  color:var(--off-white);
+  text-wrap:pretty;
+}
+
+@media (max-width:900px){
+  #manifesto{
+    padding:clamp(72px, 10vh, 112px) var(--container-padding-mobile) !important;
+  }
+  .manifesto-v2 .manifesto-grid{
+    grid-template-columns:1fr;
+    gap:clamp(48px, 8vh, 72px);
+  }
+  .manifesto-v2 .manifesto-card{
+    position:static;
+    background:transparent;
+    border:none;
+    border-top:1px solid rgba(224,199,163,0.15);
+    padding:clamp(40px, 6vh, 56px) 0 0;
+    gap:clamp(32px, 5vh, 48px);
+  }
+  .manifesto-v2 .mf-item + .mf-item{
+    border-top:none;padding-top:0;
+  }
+}
+
+/* ============ EDIÇÕES ANTERIORES V2 — arquivo vivo ============ */
+#edicoes{
+  padding:clamp(96px, 14vh, 160px) var(--container-padding-desktop) !important;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+.edicoes-v2-head{
+  display:grid;
+  grid-template-columns:1.05fr 1fr;
+  gap:clamp(48px, 7vw, 96px);
+  align-items:start;
+  margin-bottom:clamp(56px, 8vh, 96px);
+}
+.edicoes-v2-lede h2{
+  margin:0;color:var(--off-white);
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(34px, 4.8vw, 64px);line-height:1.04;letter-spacing:-0.022em;
+  text-wrap:pretty;
+}
+.edicoes-v2-intro p{
+  margin:0 0 18px;max-width:520px;
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(16px, 1.3vw, 19px);line-height:1.6;
+  color:var(--azul-cinza);
+}
+.edicoes-v2-intro p:last-child{margin-bottom:0;}
+.edicoes-v2-bridge{
+  padding-top:18px;border-top:1px solid rgba(224,199,163,0.18);
+  color:var(--off-white) !important;
+}
+.edicoes-v2-bridge em{
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  color:var(--areia);letter-spacing:-0.01em;
+}
+
+/* Dois cards principais */
+.edicoes-v2-cards{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(24px, 3vw, 48px);
+  margin-bottom:clamp(56px, 7vh, 80px);
+}
+.edicao-card{display:flex;flex-direction:column;}
+.edicao-media{
+  position:relative;display:block;
+  aspect-ratio:4/3;overflow:hidden;
+  background:var(--noite-3);
+  margin-bottom:clamp(20px, 2.5vh, 32px);
+}
+.edicao-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(0.92) contrast(1.02) brightness(0.95);
+  transition:transform 800ms ease, filter 400ms ease;
+}
+.edicao-media:hover img{
+  transform:scale(1.03);
+  filter:saturate(1) contrast(1.04) brightness(1);
+}
+.edicao-media::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.55) 100%);
+}
+.edicao-play{
+  position:absolute;left:24px;bottom:24px;z-index:2;
+  width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(11,18,32,0.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(224,199,163,0.55);
+  color:var(--off-white);
+  transition:background 200ms ease, border-color 200ms ease, transform 200ms ease;
+}
+.edicao-media:hover .edicao-play{
+  background:var(--terracota);border-color:var(--terracota);
+  transform:translateX(2px);
+}
+.edicao-body{display:flex;flex-direction:column;}
+.edicao-tag{
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--terracota-claro);
+  margin:0 0 10px;
+}
+.edicao-title{
+  margin:0 0 16px;
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(28px, 2.8vw, 38px);line-height:1;letter-spacing:-0.02em;
+  color:var(--off-white);
+}
+.edicao-text{
+  margin:0 0 24px;max-width:480px;
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(15px, 1.2vw, 17px);line-height:1.6;
+  color:var(--azul-cinza);
+}
+.edicao-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-body);font-weight:600;font-size:13px;letter-spacing:0.05em;
+  color:var(--off-white);
+  padding-bottom:8px;border-bottom:1px solid rgba(224,199,163,0.35);
+  align-self:flex-start;
+  transition:color 200ms ease, border-color 200ms ease, gap 200ms ease;
+}
+.edicao-cta .arrow{transition:transform 200ms ease;}
+.edicao-cta:hover{color:var(--terracota-claro);border-color:var(--terracota);}
+.edicao-cta:hover .arrow{transform:translateX(4px);}
+
+/* Faixa de imagens pequenas */
+.edicoes-v2-strip{
+  display:grid;grid-template-columns:repeat(4, 1fr);gap:8px;
+  margin-bottom:clamp(48px, 6vh, 72px);
+}
+.strip-cell{
+  aspect-ratio:1/1;overflow:hidden;background:var(--noite-3);
+}
+.strip-cell img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(0.6) contrast(0.98) brightness(0.85);
+  transition:filter 400ms ease;
+}
+.strip-cell:hover img{filter:saturate(0.95) contrast(1.02) brightness(0.98);}
+
+/* Citação opcional */
+.edicoes-v2-quote{
+  margin:0;padding:clamp(28px, 4vh, 48px) 0 0;
+  border-top:1px solid rgba(255,255,255,0.08);
+  display:flex;flex-direction:column;gap:14px;align-items:flex-start;
+}
+.edicoes-v2-quote p{
+  margin:0;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(22px, 2.4vw, 32px);line-height:1.3;letter-spacing:-0.015em;
+  color:var(--areia);max-width:760px;text-wrap:pretty;
+}
+.edicoes-v2-quote cite{
+  font-family:var(--font-mono);font-style:normal;font-size:11px;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--azul-cinza-2);
+}
+
+@media (max-width:900px){
+  #edicoes{
+    padding:clamp(72px, 10vh, 112px) var(--container-padding-mobile) !important;
+  }
+  .edicoes-v2-head{
+    grid-template-columns:1fr;
+    gap:clamp(32px, 5vh, 48px);
+    margin-bottom:clamp(48px, 7vh, 64px);
+  }
+  .edicoes-v2-cards{
+    grid-template-columns:1fr;
+    gap:clamp(40px, 6vh, 56px);
+  }
+  .edicoes-v2-strip{
+    grid-template-columns:repeat(2, 1fr);
+  }
+  .edicao-play{width:46px;height:46px;left:16px;bottom:16px;}
+}
+
+/* ============ MOBILE OVERRIDE — hero redesenhado ============
+   Estratégia: UMA foto forte full-bleed (Bruna no palco) em vez do mosaico
+   de 3 imagens, gradiente pesado no rodapé pra legibilidade, tipografia
+   recalibrada pra caber no viewport, CTA empilhado full-width.            */
+@media (max-width:900px){
+  /* ---- Foto: colapsa pra 1 imagem só (a 3ª = Bruna), full-bleed ---- */
+  #hero .hero-mosaic{
+    grid-template-columns:1fr !important;
+    grid-template-rows:1fr !important;
+    gap:0 !important;
+  }
+  #hero .hero-mosaic .ph:nth-child(1),
+  #hero .hero-mosaic .ph:nth-child(2){display:none !important;}
+  #hero .hero-mosaic .ph:nth-child(3){
+    grid-column:1 !important; grid-row:1 !important;
+  }
+  #hero .hero-mosaic .ph:nth-child(3) img{
+    object-position:62% 22% !important;
+    filter:brightness(0.88) saturate(1.05) contrast(1.02) !important;
+  }
+  /* Remove fades laterais da imagem única */
+  #hero .hero-mosaic .ph::before,
+  #hero .hero-mosaic .ph::after{
+    background:linear-gradient(to top, var(--noite) 0%, transparent 14%) !important;
+  }
+
+  /* ---- Overlay muito mais forte pra sustentar a tipografia ---- */
+  #hero .hero-overlay{
+    background:linear-gradient(180deg,
+      rgba(11,18,32,0.55) 0%,
+      rgba(11,18,32,0.38) 26%,
+      rgba(11,18,32,0.55) 52%,
+      rgba(11,18,32,0.86) 74%,
+      rgba(11,18,32,0.96) 92%,
+      var(--noite) 100%) !important;
+  }
+  #hero .hero-vignette{
+    background:
+      radial-gradient(ellipse 110% 55% at 30% 88%, rgba(11,18,32,0.7) 0%, transparent 78%),
+      radial-gradient(ellipse 90% 35% at 50% 12%, rgba(11,18,32,0.5) 0%, transparent 80%) !important;
+  }
+
+  /* ---- Conteúdo com padding lateral correto e altura controlada ---- */
+  #hero{ min-height:auto !important; }
+  #hero .hero-content{
+    padding:0 var(--container-padding-mobile) 36px !important;
+    min-height:calc(100svh - var(--topbar-h) - 12px) !important;
+    height:auto !important;
+    justify-content:flex-end !important;
+    gap:0 !important;
+  }
+
+  /* ---- Tipografia recalibrada pra caber sem sangrar ---- */
+  .hero-display-lockup{ margin:0 0 4px !important; }
+  .hero-display-tdah{
+    font-size:clamp(76px, 24vw, 120px) !important;
+    line-height:0.86 !important;
+    letter-spacing:-0.055em !important;
+    margin-bottom:-0.02em !important;
+  }
+  .hero-display-era{
+    font-size:clamp(34px, 10.5vw, 54px) !important;
+    line-height:0.98 !important;
+    letter-spacing:-0.025em !important;
+    margin-top:10px !important;
+  }
+  .hero-v4-subtitle{
+    margin:22px 0 0 !important;
+    font-size:17px !important;
+    line-height:1.32 !important;
+    letter-spacing:-0.015em !important;
+    max-width:none !important;
+  }
+  /* Texto de apoio repete a ideia do subtítulo — esconde no mobile */
+  .hero-v4-support{ display:none !important; }
+
+  /* ---- Bloco meta (data + CTA) empilhado e full-width ---- */
+  #hero .hero-meta{
+    margin-top:28px !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:18px !important;
+  }
+  .hero-meta-text{
+    font-size:10px !important;
+    letter-spacing:0.14em !important;
+    line-height:1.7 !important;
+    white-space:normal !important;
+  }
+  .hero-actions{
+    flex-direction:column !important;
+    align-items:stretch !important;
+    gap:14px !important;
+    width:100% !important;
+  }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-large{
+    width:100% !important;
+    justify-content:center !important;
+    padding:18px 22px !important;
+    font-size:15px !important;
+    letter-spacing:0.02em !important;
+  }
+  .hero-actions .btn-ghost{
+    align-self:flex-start !important;
+    padding:6px 0 !important;
+    font-size:13px !important;
+  }
+
+  /* === HAMBURGER DRAWER === */
+  .topbar.menu-open .topbar-nav a:not(.nav-cta){
+    display:flex !important;
+  }
+  .topbar.menu-open .topbar-nav .nav-inner{
+    position:absolute;top:var(--topbar-h-nav);left:0;right:0;
+    flex-direction:column;align-items:stretch;
+    background:var(--noite-2);
+    border-top:1px solid rgba(255,255,255,0.06);
+    border-bottom:1px solid rgba(255,255,255,0.06);
+    padding:8px var(--container-padding-mobile);
+    gap:0;
+    z-index:60;
+  }
+  .topbar.menu-open .topbar-nav .nav-inner a{
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+    font-size:14px;letter-spacing:0.04em;
+    color:var(--off-white);
+  }
+  .topbar.menu-open .topbar-nav .nav-inner a:last-child{border-bottom:none;}
+  .topbar.menu-open .topbar-nav .nav-inner .topbar-menu-btn{
+    align-self:flex-end;
+  }
+  .topbar.menu-open .topbar-menu-btn::before{content:'\00d7';}
+  .topbar.menu-open .topbar-menu-btn{font-size:0;}
+  .topbar.menu-open .topbar-menu-btn::before{font-size:24px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ============== A1 · STICKY TOP-BAR COUNTDOWN ============== -->
+<div class="topbar" data-screen-label="00 Top-bar countdown">
+  <!-- Row 1 · Nav -->
+  <div class="topbar-nav">
+    <div class="nav-inner">
+      <button class="topbar-menu-btn" aria-label="Menu" type="button">≡</button>
+      <a href="#manifesto">A tese</a>
+      <a href="#programa">Programa</a>
+      <a href="#anfitrioes">Quem conduz</a>
+      <a href="#investimento">Investimento</a>
+    </div>
+  </div>
+  <!-- Row 2 · Bar (brand + countdown + date + CTA) -->
+  <div class="topbar-bar">
+    <div class="topbar-bar-inner">
+      <div class="topbar-brand">
+        <svg class="logo-m" width="40" height="40" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+          <path d="M10 90 L10 30 Q10 10, 30 10 L70 10 Q90 10, 90 30 L90 90 L75 90 L75 35 Q75 25, 65 25 Q55 25, 55 35 L55 90 L45 90 L45 35 Q45 25, 35 25 Q25 25, 25 35 L25 90 Z" fill="#C46D37"/>
+        </svg>
+        <div class="brand-text">
+          <div class="brand-eyebrow">Imersão TDAH ao longo da vida · 3ª Edição</div>
+          <div class="brand-theme">TDAH na Era Digital</div>
+        </div>
+      </div>
+      <div class="topbar-spacer"></div>
+      <div class="topbar-countdown" id="countdown" aria-label="Tempo até o evento">
+        <div class="cd-unit"><span class="num" data-unit="d">—</span><span class="u">dias</span></div>
+        <span class="sep">·</span>
+        <div class="cd-unit"><span class="num" data-unit="h">—</span><span class="u">horas</span></div>
+        <span class="sep">·</span>
+        <div class="cd-unit"><span class="num" data-unit="m">—</span><span class="u">min</span></div>
+        <span class="sep sep-seg">·</span>
+        <div class="cd-unit cd-seg"><span class="num" data-unit="s">—</span><span class="u">seg</span></div>
+      </div>
+      <div class="topbar-right">
+        <a href="#investimento" class="topbar-cta">Reservar lugar →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- ============== B3 · HERO DOCUMENTAL SILENCIOSO ============== -->
+  <section id="hero" data-screen-label="01 Hero documental">
+    <div class="hero-mosaic" aria-hidden="true">
+      <div class="ph"><img src="assets/hero-stage.webp" alt="" loading="eager" /></div>
+      <div class="ph"><img src="assets/hero-question.webp" alt="" style="object-position:center 30%" loading="eager" /></div>
+      <div class="ph"><img src="assets/hero-bruna.webp" alt="" style="object-position:center 25%" loading="eager" /></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+    <div class="hero-content">
+      <h1 class="hero-display-lockup">
+        <span class="hero-display-tdah">TDAH</span>
+        <span class="hero-display-era">na Era Digital</span>
+      </h1>
+      <p class="hero-v4-subtitle">
+        Uma discussão clínica sobre risco, recurso e responsabilidade no ambiente digital.
+      </p>
+      <p class="hero-v4-support">
+        Quando reduzir telas, como reorganizar o ambiente digital e quais tecnologias podem funcionar como recurso terapêutico.
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-text">IMERSÃO PRESENCIAL · TDAH AO LONGO DA VIDA
+29.AGO.2026 · SALAS BRASIL · SÃO PAULO</div>
+        <div class="hero-actions">
+          <a href="#investimento" class="btn-primary btn-large">Reservar lugar na sala →</a>
+          <a href="#experiencia" class="btn-ghost">Ver a experiência <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== MANIFESTO CURTO EDITORIAL ============== -->
+  <section id="manifesto" class="block dark" data-screen-label="02 Manifesto">
+    <div class="container reveal manifesto-v2">
+      <span class="overline">A tese da 3ª edição</span>
+      <div class="manifesto-grid">
+        <div class="manifesto-thesis">
+          <h2 class="manifesto-title">
+            <span class="line">Nem toda desatenção é TDAH.</span>
+            <span class="line">Nem todo sintoma nasce do transtorno.</span>
+          </h2>
+          <div class="manifesto-rule" aria-hidden="true"></div>
+          <p class="manifesto-body">A clínica contemporânea exige diferenciar sintomas persistentes de padrões de desregulação atravessados pelo ambiente digital.</p>
+          <p class="manifesto-close">Sintomas que nem sempre são TDAH, mas exigem leitura clínica cuidadosa.</p>
+        </div>
+        <aside class="manifesto-card" aria-label="Nota de pesquisa">
+          <div class="mf-item">
+            <span class="mf-label">Pergunta orientadora</span>
+            <p class="mf-text">A tecnologia piora, imita ou trata o TDAH?</p>
+          </div>
+          <div class="mf-item">
+            <span class="mf-label">Promessa cognitiva</span>
+            <p class="mf-text">Separar risco, recurso e responsabilidade diagnóstica.</p>
+          </div>
+          <div class="mf-item">
+            <span class="mf-label">Assinatura EPM</span>
+            <p class="mf-text">Como um clínico experiente pensa, formula, decide e conduz casos de TDAH na era digital.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== C1 · EDIÇÕES ANTERIORES — ARQUIVO VIVO ============== -->
+  <section id="edicoes" class="block dark" data-screen-label="03 Edições anteriores">
+    <div class="container reveal">
+
+      <div class="edicoes-v2-head">
+        <div class="edicoes-v2-lede">
+          <span class="overline">Edições anteriores</span>
+          <h2>Uma trajetória que chega à 3ª edição impulsionada por uma nova pergunta clínica.</h2>
+        </div>
+        <div class="edicoes-v2-intro">
+          <p>Antes desta 3ª edição, a Imersão TDAH ao longo da vida reuniu profissionais em Recife e São Paulo para discutir atenção, desenvolvimento, diagnóstico e manejo clínico nas diferentes fases da vida.</p>
+          <p class="edicoes-v2-bridge">Agora, a 3ª edição desloca essa discussão para um novo desafio clínico: como pensar o TDAH na era digital?</p>
+        </div>
+      </div>
+
+      <div class="edicoes-v2-cards">
+        <article class="edicao-card">
+          <a class="edicao-media" href="https://youtube.com/shorts/3ZyGD9YUcjU" target="_blank" rel="noopener" aria-label="Assistir registro da 2ª edição — São Paulo · 2025">
+            <img src="assets/doc-1.jpg" alt="2ª edição da Imersão TDAH, São Paulo · 2025" loading="lazy" style="object-position:center 15%" />
+            <span class="edicao-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="8,5 19,12 8,19" fill="currentColor" stroke="none"/></svg>
+            </span>
+          </a>
+          <div class="edicao-body">
+            <span class="edicao-tag">São Paulo · 2025</span>
+            <h3 class="edicao-title">2ª edição</h3>
+            <p class="edicao-text">Uma sala ampliada, marcada por casos, perguntas e discussões clínicas que impulsionaram uma nova etapa da trajetória.</p>
+            <a class="edicao-cta" href="https://youtube.com/shorts/3ZyGD9YUcjU" target="_blank" rel="noopener">Assistir registro <span class="arrow">→</span></a>
+          </div>
+        </article>
+
+        <article class="edicao-card">
+          <a class="edicao-media" href="https://youtu.be/cZrTFIyy3Nc" target="_blank" rel="noopener" aria-label="Assistir registro da 1ª edição — Recife · 2024">
+            <img src="assets/recife-2024.webp" alt="Dra. Bruna Trevisan no palco da 1ª edição da Imersão TDAH, Recife · 2024" loading="lazy" />
+            <span class="edicao-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="8,5 19,12 8,19" fill="currentColor" stroke="none"/></svg>
+            </span>
+          </a>
+          <div class="edicao-body">
+            <span class="edicao-tag">Recife · 2024</span>
+            <h3 class="edicao-title">1ª edição</h3>
+            <p class="edicao-text">O início de uma imersão presencial dedicada ao raciocínio clínico sobre o TDAH ao longo da vida.</p>
+            <a class="edicao-cta" href="https://youtu.be/cZrTFIyy3Nc" target="_blank" rel="noopener">Assistir registro <span class="arrow">→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="edicoes-v2-strip" aria-label="Registro documental das edições anteriores">
+        <div class="strip-cell"><img src="assets/doc-3.jpg" alt="Intervalo entre blocos" loading="lazy" style="object-position:center top" /></div>
+        <div class="strip-cell"><img src="assets/doc-5.jpg" alt="Participantes em diálogo" loading="lazy" style="object-position:center 15%" /></div>
+        <div class="strip-cell"><img src="assets/doc-2.jpg" alt="Participante anotando" loading="lazy" /></div>
+        <div class="strip-cell"><img src="assets/doc-6.jpg" alt="Discussão entre profissionais" loading="lazy" /></div>
+      </div>
+
+      <blockquote class="edicoes-v2-quote">
+        <p>“A imersão mudou a forma como levo perguntas para a clínica.”</p>
+        <cite>Psicóloga · 2ª Edição · São Paulo · 2025</cite>
+      </blockquote>
+
+    </div>
+  </section>
+
+  <!-- ============== D · TENSÃO CLÍNICA (ZUMBIS DIGITAIS) — PLACEHOLDERS BRIEFADOS ============== -->
+  <section id="zumbis" class="block dark" data-screen-label="04 Tensão clínica">
+    <div class="container reveal">
+      <div class="zumbi-head">
+        <span class="overline">Cenas que aparecem toda semana no consultório</span>
+        <h2>Antes de discutir o que é, vale olhar para como aparece.</h2>
+        <p>TDAH, hiperestimulação ou um ambiente incapaz de sustentar regulação?
+Cenas comuns, sintomas ambíguos e decisões clínicas que exigem mais do que reduzir telas ou confirmar diagnósticos.</p>
+      </div>
+      <div class="zumbi-grid">
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-01-infancia.webp" alt="Criança em ambiente escuro com tablet iluminando o rosto" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 01 · Infância</span>
+            <p class="scene">Criança que só regula com a tela.</p>
+          </div>
+        </article>
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-02-adolescencia.webp" alt="Adolescente de costas em quarto escuro com múltiplas telas acesas" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 02 · Adolescência</span>
+            <p class="scene">Quarto às 2h da manhã: celular e monitores acesos.</p>
+          </div>
+        </article>
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-03-vida-adulta.webp" alt="Mesa de trabalho com notebook, caderno e celular junto à janela" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 03 · Vida adulta</span>
+            <p class="scene">Mesa de trabalho. Notificações que não param.</p>
+          </div>
+        </article>
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-04-familia.webp" alt="Mãe e filho à mesa, cada um com seu celular" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 04 · Família</span>
+            <p class="scene">Jantar em silêncio. Duas telas, dois mundos.</p>
+          </div>
+        </article>
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-05-transporte.webp" alt="Vagão de metrô cheio com passageiros absortos em seus celulares" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 05 · Transporte</span>
+            <p class="scene">Vagão cheio. Cinquenta pessoas, zero contato.</p>
+          </div>
+        </article>
+        <article class="zumbi-card">
+          <img class="zumbi-img" src="assets/cena-06-consultorio.webp" alt="Mãos de terapeuta anotando em prancheta com poltrona vazia ao fundo" loading="lazy" />
+          <div class="zumbi-brief">
+            <span class="tag">Cena 06 · Consultório</span>
+            <p class="scene">Paciente que pede diagnóstico antes de relato.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== ANFITRIÕES (THINK TANK) ============== -->
+  <section id="anfitrioes" class="block dark" data-screen-label="05 Anfitriões">
+    <div class="container reveal">
+      <div class="anf-head">
+        <span class="overline">A condução</span>
+        <h2>Quem conduz a imersão.</h2>
+      </div>
+      <div class="anf-grid">
+        <article class="anf-card">
+          <div class="anf-photo">
+            <img src="assets/arthur-portrait.jpg" alt="Dr. Arthur Berberian" loading="lazy" style="object-position:center 18%" />
+          </div>
+          <p class="anf-inst">UNIFESP · USP · PhD Psiquiatria</p>
+          <h3 class="anf-name">Arthur Berberian, <em>PhD</em></h3>
+          <div class="anf-bio">
+            <p>Psicólogo e neuropsicólogo clínico, com mais de 20 anos de prática clínica. Doutor em Psiquiatria pela UNIFESP. Especialista em Neuropsicologia e TCC pela USP. Por oito anos, coordenou o Serviço de Neuropsicologia do Programa de Esquizofrenia da UNIFESP. Foi pesquisador do Laboratório de Neurociências Clínicas da UNIFESP.
+
+Docente e supervisor clínico nas Especializações em Neuropsicologia (UNIFESP) e TCC (CTC Veda — Faap). 
+CRP 06/86877</p>
+          </div>
+          <a class="anf-lattes" href="http://lattes.cnpq.br/6416386670668146" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Berberian">
+            <img src="assets/lattes-logo.png" alt="" aria-hidden="true" />
+            <span>Currículo Lattes</span>
+          </a>
+        </article>
+        <article class="anf-card">
+          <div class="anf-photo">
+            <img src="assets/bruna-portrait.jpg" alt="Dra. Bruna Trevisan" loading="lazy" style="object-position:center 18%" />
+          </div>
+          <p class="anf-inst">Mackenzie · FMUSP-HC · UNIFESP · Pós-doc</p>
+          <h3 class="anf-name">Bruna Trevisan, <em>PhD</em></h3>
+          <div class="anf-bio">
+            <p>Psicóloga e neuropsicóloga, Doutora e pós-doutora em Distúrbios do Desenvolvimento pelo Mackenzie. Especialista em TCC pelo CTC Veda (DGERT, União Europeia). Tem 18 anos de prática dedicada ao neurodesenvolvimento.  Docente e supervisora clínica nas Especializações em Neuropsicologia da FMUSP-HC e da UNIFESP com mais de mil casos clínicos supervisionados. </p>
+            <p>Pesquisadora do grupo de Neuropsicologia Infantil da Mackenzie. 
+CRP 06/94301</p>
+          </div>
+          <a class="anf-lattes" href="http://lattes.cnpq.br/7352958048754654" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Bruna Trevisan">
+            <img src="assets/lattes-logo.png" alt="" aria-hidden="true" />
+            <span>Currículo Lattes</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== A EXPERIÊNCIA PRESENCIAL (NEW) ============== -->
+  <section id="experiencia" class="block light" data-screen-label="06 Experiência presencial">
+    <div class="container reveal">
+      <div class="exp-head">
+        <span class="overline">Como será o dia</span>
+        <h2>Um dia inteiro de raciocínio clínico — não de slides.</h2>
+        <p>Casos clínicos, discussões em mesa e um caso longitudinal atravessando infância, adolescência e vida adulta — da avaliação à condução clínica na era digital.</p>
+      </div>
+      <div class="exp-grid">
+        <article class="exp-card span-7">
+          <span class="num">01</span>
+          <h3>Um caso clínico atravessando infância, adolescência e vida adulta.</h3>
+          <p>Infância, adolescência e vida adulta — o mesmo paciente atravessando diferentes ambientes, sintomas e hipóteses clínicas ao longo do tempo.</p>
+          <span class="meta">Eixo do dia</span>
+        </article>
+        <article class="exp-card span-5">
+          <span class="num">02</span>
+          <h3>Quatro blocos clínicos. Oito horas de estudo aplicado ao desafio da era digital</h3>
+          <p>Entre hiperconectividade, colapso atencional e tecnologia como recurso terapêutico.</p>
+          <span class="meta">Estrutura</span>
+        </article>
+        <article class="exp-card span-5">
+          <span class="num">03</span>
+          <h3>Painel Clínico com Alunas da Escola do Psicólogo</h3>
+          <p>Casos reais, decisões difíceis e raciocínio clínico compartilhado entre profissionais da DTC.</p>
+          <span class="meta">Aplicação</span>
+        </article>
+        <article class="exp-card span-7">
+          <span class="num">04</span>
+          <h3>Mesa integradora: os limites entre diagnóstico, ambiente e desregulação na era digital</h3>
+          <p>Uma mesa aberta entre clínicos — perguntas difíceis, impasses diagnósticos e discussões construídas ao vivo. É onde o dia se condensa.</p>
+          <span class="meta">Encerramento</span>
+        </article>
+        <article class="exp-card span-12">
+          <span class="num">05</span>
+          <h3>São Paulo. Um encontro presencial desenhado para aprofundamento e networking qualificado.</h3>
+          <p>Espaço reduzido por escolha — máximo de 200 participantes. Experiência presencial desenhada para discussão clínica profunda, troca qualificada e permanência ao longo do dia. Sem transmissão online: o que acontece na sala é o que sustenta a discussão.</p>
+          <span class="meta">Logística</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== QUEM ESTÁ NA SALA (NEW) ============== -->
+  <section id="sala" class="block dark" data-screen-label="07 Quem está na sala">
+    <div class="container reveal">
+      <div class="sala-grid">
+        <div class="sala-text">
+          <span class="overline">Pertencimento clínico</span>
+          <h2>A qualidade da discussão começa com quem está na sala</h2>
+          <p>Psicólogos clínicos, neuropsicólogos, psiquiatras e profissionais dedicados ao TDAH ao longo da vida — reunidos para discutir casos, diagnóstico e condução clínica em um ambiente de troca qualificada.</p>
+          <div class="sala-stats">
+            <div class="sala-stat">
+              <div class="num">200</div>
+              <div class="lbl">Vagas presenciais<br/>(máx. por edição)</div>
+            </div>
+            <div class="sala-stat">
+              <div class="num">68%</div>
+              <div class="lbl">São psicólogos com<br/>5+ anos de clínica</div>
+            </div>
+            <div class="sala-stat">
+              <div class="num">19</div>
+              <div class="lbl">Estados representados<br/>na 2ª edição</div>
+            </div>
+            <div class="sala-stat">
+              <div class="num">4 em 5</div>
+              <div class="lbl">Voltariam<br/>(pesquisa pós-evento)</div>
+            </div>
+          </div>
+        </div>
+        <div class="sala-photos">
+          <div class="ph"><img src="assets/sala-grupo.webp" alt="Arthur Berberian e participantes da 2ª edição em frente ao backdrop do evento" loading="lazy" style="object-position:center 22%" /></div>
+          <div class="ph"><img src="assets/sala-dupla.webp" alt="Arthur Berberian e Bruna Trevisan nos bastidores da imersão" loading="lazy" style="object-position:center 18%" /></div>
+          <div class="ph"><img src="assets/sala-arthur.webp" alt="Arthur Berberian conduzindo bloco clínico em sala" loading="lazy" style="object-position:62% 28%" /></div>
+          <div class="ph"><img src="assets/sala-bruna.webp" alt="Bruna Trevisan apresentando bloco clínico em palco" loading="lazy" style="object-position:28% 30%" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== PROGRAMA ============== -->
+  <section id="programa" class="block light" data-screen-label="08 Programa">
+    <div class="container reveal">
+      <div class="program-head">
+        <span class="overline">O percurso clínico do dia</span>
+        <h2>Quatro camadas. Oito horas de raciocínio clínico sobre TDAH, hiperestimulação e desregulação na era digital.</h2>
+        <p>Um caso longitudinal, discussões clínicas, tecnologia como contexto e decisões construídas em tempo real.</p>
+      </div>
+      <aside class="concept-card" aria-label="Conceito-chave da imersão">
+        <span class="overline">Conceito-chave</span>
+        <p>A tecnologia pode intensificar sintomas, produzir ruído diagnóstico ou funcionar como recurso terapêutico.</p>
+      </aside>
+      <div class="timeline">
+        <div class="timeline-row"><div class="time">08:30</div><div class="title-cell">Credenciamento</div><div class="by empty">—</div></div>
+        <div class="timeline-row"><div class="time">09:00</div><div class="title-cell">Abertura + apresentação do caso longitudinal</div><div class="by">
+</div></div>
+        <div class="timeline-row feature"><div class="time">09:30</div><div class="title-cell">BLOCO 1 · INFÂNCIA
+
+Infância: telas, desenvolvimento e desregulação.</div><div class="by">
+</div></div>
+        <div class="timeline-row"><div class="time">10:45</div><div class="title-cell">Café</div><div class="by empty">—</div></div>
+        <div class="timeline-row feature"><div class="time">11:00</div><div class="title-cell">BLOCO 2 · ADOLESCÊNCIA
+
+Adolescência hiperconectada: redes sociais, jogos e recompensa imediata.</div><div class="by">
+</div></div>
+        <div class="timeline-row sub"><div class="time">11:45</div><div class="title-cell"><span class="kicker">Bloco 2 · Sub-tópico</span>Sono, hiperestimulação e risco psiquiátrico no desenvolvimento</div><div class="by">
+</div></div>
+        <div class="timeline-row"><div class="time">12:15</div><div class="title-cell">Almoço — não incluso</div><div class="by empty">—</div></div>
+        <div class="timeline-row feature"><div class="time">14:00</div><div class="title-cell">BLOCO 3 · VIDA ADULTA
+
+Vida adulta hiperconectada: IA, exaustão e desorganização atencional.</div><div class="by">
+</div></div>
+        <div class="timeline-row"><div class="time">15:15</div><div class="title-cell">Café</div><div class="by empty">—</div></div>
+        <div class="timeline-row feature"><div class="time">15:30</div><div class="title-cell">BLOCO 4 · TECNOLOGIA A FAVOR
+
+Quando a tecnologia ajuda: ferramentas digitais, IA e intervenção clínica.</div><div class="by">
+</div></div>
+        <div class="timeline-row"><div class="time">16:45</div><div class="title-cell">Mesa integradora + Q&amp;A</div><div class="by">
+</div></div>
+        <div class="timeline-row"><div class="time">18:00</div><div class="title-cell">Encerramento</div><div class="by empty">—</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== E2b · O QUE VOCÊ LEVA (PRÁTICO LIGHT) ============== -->
+  <section id="entregas" class="block light" data-screen-label="09 O que você leva">
+    <div class="container reveal">
+      <div class="entr-head">
+        <span class="overline">O que você leva como clínico</span>
+        <h2>Você sai com hipóteses mais precisas — não apenas com respostas prontas.</h2>
+        <p>A imersão entrega enquadres clínicos, não técnicas isoladas. Aprendizados que reorganizam a leitura do caso a partir do segundo atendimento.</p>
+      </div>
+      <div class="entr-grid">
+        <article class="entr-card span-8">
+          <span class="num">01 · Diferenciação clínica</span>
+          <h3>Diferenciar TDAH de sintomas produzidos por hiperestimulação digital.</h3>
+          <p>Aprofundamento clínico para distinguir transtorno do neurodesenvolvimento dos padrões cognitivos e comportamentais produzidos pelo excesso de estímulo — fenômenos que se sobrepõem e se confundem na clínica contemporânea.</p>
+        </article>
+        <article class="entr-card span-4">
+          <span class="num">02 · Raciocínio clínico</span>
+          <h3>Critérios clínicos para interpretar recusa escolar, ansiedade e hiperconectividade.</h3>
+          <p>Um eixo de leitura que não reduz o caso a uma única hipótese.</p>
+        </article>
+        <article class="entr-card span-6">
+          <span class="num">03 · Manejo tecnológico</span>
+          <h3>Quando tecnologia funciona como risco, compensação ou recurso terapêutico.</h3>
+          <p>Critérios clínicos para integrar telas, plataformas e IA ao plano terapêutico com clareza ética. Sem demonização e sem entusiasmo ingênuo.</p>
+        </article>
+        <article class="entr-card span-6">
+          <span class="num">04 · Orientação parental</span>
+          <h3>Como orientar famílias diante da coexistência entre dificuldades de regulação e hiperestimulação</h3>
+          <p>Direções clínicas para o ciclo que mantém o sintoma — sem moralismo, sem manuais rasos, sem ignorar que o adulto também precisa ser cuidado.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== DEPOIMENTOS QUALIFICADOS ============== -->
+  <section id="depoimentos" class="block dark" data-screen-label="10 Depoimentos">
+    <div class="container reveal">
+      <div class="dep-head">
+        <span class="overline areia">Voltam para a clínica diferentes</span>
+        <h2>Poucos. Fortes. De quem já atendia antes de chegar aqui.</h2>
+      </div>
+      <div class="dep-grid">
+        <article class="dep-card">
+          <p class="dep-quote">Saí pensando diferente sobre metade dos meus casos. Não era um conteúdo a mais — era um eixo a menos que eu estava ignorando.</p>
+          <div class="dep-author">
+            <span class="name">Psicóloga · 12 anos de clínica</span>
+            <span class="role">2ª Edição · São Paulo · 2025</span>
+          </div>
+        </article>
+        <article class="dep-card">
+          <p class="dep-quote">Voltei para o consultório com perguntas melhores para casos que eu achava já compreender. Esse é o tipo de imersão que muda como você escuta.</p>
+          <div class="dep-author">
+            <span class="name">Psicóloga · DTC, mentorada</span>
+            <span class="role">2ª Edição · São Paulo · 2025</span>
+          </div>
+        </article>
+        <article class="dep-card">
+          <p class="dep-quote">Foi a primeira vez em muito tempo que saí de um evento clínico sem a sensação de que tinha visto a mesma coisa repetida com outras palavras.</p>
+          <div class="dep-author">
+            <span class="name">Psiquiatra · 8 anos de prática</span>
+            <span class="role">2ª Edição · São Paulo · 2025</span>
+          </div>
+        </article>
+        <article class="dep-card">
+          <p class="dep-quote">A discussão entre Arthur e Bruna sustenta o nível. Não é uma palestra dupla — é raciocínio em ato, e isso faz uma diferença enorme.</p>
+          <div class="dep-author">
+            <span class="name">Neuropsicóloga clínica</span>
+            <span class="role">1ª Edição · São Paulo · 2024</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== INVESTIMENTO ============== -->
+  <section id="investimento" class="block light" data-screen-label="11 Investimento">
+    <div class="container reveal">
+      <div class="inv-head">
+        <span class="overline">Investimento</span>
+        <h2>Três lotes. Decisão honesta sobre o tempo.</h2>
+        <p>Quanto antes você confirma, menos paga. Não é truque de venda — é a forma honesta de garantir espaço para aprofundar, atualizar e aplicar o conhecimento na clínica.</p>
+      </div>
+      <div class="lots-grid">
+        <article class="lot active">
+          <span class="lot-tag">Atual</span>
+          <span class="lot-name">Lote 1 · Antecipado</span>
+          <h3 class="lot-title">Antecipado</h3>
+          <div class="lot-price"><span class="currency">R$</span>797</div>
+          <div class="lot-sub">Até 20 de junho · ou 80 primeiras vagas</div>
+          <div class="lot-cta">
+            <a href="https://payfast.greenn.com.br/ngeafnx" class="btn-primary" target="_blank" rel="noopener">Garantir vaga no Lote 1 →</a>
+          </div>
+        </article>
+        <article class="lot muted">
+          <span class="lot-name">Lote 2 · Intermediário</span>
+          <h3 class="lot-title">Intermediário</h3>
+          <div class="lot-price"><span class="currency">R$</span>1.097</div>
+          <div class="lot-sub">De 21 de junho a 09 de agosto</div>
+          <div class="lot-cta">
+            <button class="btn-primary" disabled>Em breve</button>
+          </div>
+        </article>
+        <article class="lot muted">
+          <span class="lot-name">Lote 3 · Final</span>
+          <h3 class="lot-title">Final</h3>
+          <div class="lot-price"><span class="currency">R$</span>1.397</div>
+          <div class="lot-sub">De 10 a 28 de agosto, até esgotar</div>
+          <div class="lot-cta">
+            <button class="btn-primary" disabled>Em breve</button>
+          </div>
+        </article>
+      </div>
+      <div class="lot-fine">
+        <span>Parcelamento em até 12x no cartão (juros da operadora)</span>
+        <span>Reembolso integral em até 7 dias (CDC) <span class="sep">·</span> Transferência de vaga permitida após esse prazo</span>
+        <span>Capacidade máxima: 200 vagas <span class="sep">·</span> Presencial em São Paulo · Salas Brasil, Bela Vista</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== CTA FINAL CINEMATOGRÁFICO ============== -->
+  <section id="cta-final" data-screen-label="12 CTA final">
+    <div class="container reveal">
+      <span class="final-eyebrow">29 de agosto de 2026 · São Paulo</span>
+      <p class="final-lines">
+        A era digital mudou a forma como prestamos atenção.
+        <span class="reason">A clínica precisa aprender a ler essa mudança.</span>
+      </p>
+      <div class="final-meta">Vagas presenciais limitadas · 200 lugares</div>
+      <a href="#investimento" class="btn-primary btn-large">Participar da imersão →</a>
+      <p class="final-note">Uma experiência presencial para clínicos que querem investigar TDAH com mais nuance, precisão diagnóstica e responsabilidade clínica.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-branco.png" alt="Escola do Psicólogo Master" />
+      <p>Formação clínica e mentoria de psicólogos. Com Dra. Bruna Trevisan e Dr. Arthur Berberian.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <a href="https://wa.me/5519993160893">WhatsApp · (19) 99316-0893</a>
+      <a href="/cdn-cgi/l/email-protection#05666a6b7164716a456076666a6964616a75766c666a696a626a2b666a68"><span class="__cf_email__" data-cfemail="6f0c00011b0e1b002f0a1c0c00030e0b001f1c060c0003000800410c0002">[email&#160;protected]</span></a>
+    </div>
+    <div class="footer-col">
+      <h4>Evento</h4>
+      <p>29 de agosto de 2026</p>
+      <p>Salas Brasil · São Paulo</p>
+      <p>R. Cincinato Braga, 540 — Bela Vista</p>
+    </div>
+  </div>
+  <div class="footer-bot">
+    <span>© 2026 Escola do Psicólogo Master</span>
+    <span>3ª Edição · Imersão Clínica TDAH</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ============ HAMBURGER MENU (mobile) ============ */
+(function(){
+  const topbar = document.querySelector('.topbar');
+  const btn = document.querySelector('.topbar-menu-btn');
+  if (!topbar || !btn) return;
+  btn.addEventListener('click', () => {
+    topbar.classList.toggle('menu-open');
+  });
+  // Close on nav link click
+  topbar.querySelectorAll('.topbar-nav a').forEach(a => {
+    a.addEventListener('click', () => topbar.classList.remove('menu-open'));
+  });
+})();
+
+/* ============ COUNTDOWN ============ */
+(function(){
+  const target = new Date('2026-08-29T09:00:00-03:00').getTime();
+  const el = document.getElementById('countdown');
+  if(!el) return;
+  const d = el.querySelector('[data-unit="d"]');
+  const h = el.querySelector('[data-unit="h"]');
+  const m = el.querySelector('[data-unit="m"]');
+  const s = el.querySelector('[data-unit="s"]');
+  function pad(n){return n<10?'0'+n:n;}
+  function tick(){
+    const now = Date.now();
+    let diff = Math.max(0, target - now);
+    const days = Math.floor(diff / 86400000); diff -= days*86400000;
+    const hours = Math.floor(diff / 3600000); diff -= hours*3600000;
+    const mins = Math.floor(diff / 60000); diff -= mins*60000;
+    const secs = Math.floor(diff / 1000);
+    d.textContent = days;
+    h.textContent = pad(hours);
+    m.textContent = pad(mins);
+    if(s) s.textContent = pad(secs);
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ============ REVEAL ON SCROLL ============ */
+(function(){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ============ SMOOTH OFFSET FOR ANCHORS ============ */
+(function(){
+  const offset = 110;
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', (e)=>{
+      const id = a.getAttribute('href');
+      if(id.length < 2) return;
+      const target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({top, behavior:'smooth'});
+    });
+  });
+})();
+</script>
+
+<template id="__bundler_thumbnail" data-bg-color="#0B1220">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0B1220"/>
+    <path d="M450 580 L450 320 Q450 260, 510 260 L690 260 Q750 260, 750 320 L750 580 L690 580 L690 340 Q690 310, 660 310 Q630 310, 630 340 L630 580 L570 580 L570 340 Q570 310, 540 310 Q510 310, 510 340 L510 580 Z" fill="#C46D37"/>
+    <text x="600" y="650" font-family="Georgia, serif" font-style="italic" font-size="42" fill="#E0C7A3" text-anchor="middle">Imersão TDAH · 3ª Edição</text>
+  </svg>
+</template>
+
+</body>
+</html>
+
+<style id="__om-edit-overrides"></style>
