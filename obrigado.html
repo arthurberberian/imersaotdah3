@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Inscrição confirmada · Imersão TDAH na Era Digital · 3ª Edição EPM</title>
+<meta name="description" content="Sua vaga na 3ª edição da Imersão Clínica EPM — TDAH na era digital — está confirmada. 29 de agosto de 2026, São Paulo." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" href="assets/favicon.png" type="image/png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* =================== TOKENS =================== */
+:root{
+  --noite:#0B1220;
+  --noite-2:#111A2C;
+  --noite-3:#1A2438;
+  --noite-4:#243049;
+
+  --off-white-warm:#F5F2E8;
+  --off-white:#FAF9F4;
+
+  --terracota:#C46D37;
+  --terracota-claro:#D88959;
+  --terracota-escuro:#9E5328;
+  --areia:#E0C7A3;
+
+  --azul-cinza:#C7CED6;
+  --azul-cinza-2:#8E97A3;
+  --azul-cinza-3:#5C6573;
+  --texto-light-2:#4a5568;
+
+  --sucesso:#6B8E5A;
+
+  --font-display:'Fraunces', Georgia, serif;
+  --font-body:'Manrope', system-ui, sans-serif;
+  --font-mono:'JetBrains Mono', ui-monospace, monospace;
+
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px;
+  --s-5:24px; --s-6:32px; --s-7:48px; --s-8:64px;
+  --s-9:96px; --s-10:128px;
+
+  --container-max:1100px;
+  --container-padding-desktop:96px;
+  --container-padding-mobile:24px;
+}
+
+/* =================== RESET =================== */
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.65;
+  color:var(--noite);
+  background:var(--off-white-warm);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+:focus-visible{outline:2px solid var(--terracota);outline-offset:3px;border-radius:2px;}
+
+/* =================== LAYOUT =================== */
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.container{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:0 var(--container-padding-desktop);
+  width:100%;
+}
+.block{padding:var(--s-9) 0;}
+.block.dark{background:var(--noite);color:var(--off-white);}
+.block.light{background:var(--off-white-warm);color:var(--noite);}
+
+/* =================== HEADER MINIMAL =================== */
+.top-bar{
+  padding:var(--s-5) 0;
+  background:var(--noite);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+.top-bar .container{
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);
+}
+.top-bar .brand{
+  display:flex;align-items:center;gap:var(--s-3);
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--areia);
+}
+.top-bar .brand img{height:28px;}
+.top-bar .event{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--azul-cinza-2);
+}
+
+/* =================== HERO CONFIRMAÇÃO =================== */
+.confirm-hero{
+  background:var(--noite);
+  color:var(--off-white);
+  padding:var(--s-10) 0 var(--s-9);
+  position:relative;
+  overflow:hidden;
+}
+.confirm-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background-image:url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.03%22/%3E%3C/svg%3E');
+  pointer-events:none;
+}
+.confirm-hero .container{position:relative;z-index:1;}
+.confirm-badge{
+  display:inline-flex;align-items:center;gap:var(--s-3);
+  padding:var(--s-2) var(--s-4);
+  background:rgba(107,142,90,0.14);
+  border:1px solid rgba(107,142,90,0.45);
+  border-radius:999px;
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--sucesso);
+  margin-bottom:var(--s-6);
+}
+.confirm-badge .dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--sucesso);
+  box-shadow:0 0 0 3px rgba(107,142,90,0.2);
+}
+.confirm-title{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(38px,5.5vw,68px);
+  line-height:1.02;
+  letter-spacing:-0.025em;
+  margin:0 0 var(--s-5);
+  color:var(--off-white);
+}
+.confirm-title .accent{color:var(--terracota-claro);}
+.confirm-lead{
+  font-size:clamp(17px,1.6vw,20px);
+  line-height:1.55;
+  color:var(--azul-cinza);
+  max-width:660px;
+  margin:0 0 var(--s-7);
+}
+.confirm-meta{
+  display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-4);
+  padding-top:var(--s-5);
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--areia);
+}
+.confirm-meta .sep{
+  width:4px;height:4px;
+  background:var(--terracota);
+  border-radius:50%;
+}
+
+/* =================== EVENT CARD =================== */
+.event-card-wrap{
+  padding:var(--s-8) 0;
+  background:var(--off-white-warm);
+}
+.event-card{
+  background:#fff;
+  border:1px solid rgba(11,18,32,0.08);
+  border-radius:6px;
+  padding:var(--s-8);
+  display:grid;
+  grid-template-columns:1.4fr 1fr;
+  gap:var(--s-8);
+  align-items:start;
+  box-shadow:0 8px 32px rgba(11,18,32,0.04);
+}
+.event-card h2{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-style:italic;
+  font-size:clamp(26px,3vw,34px);
+  line-height:1.15;
+  letter-spacing:-0.015em;
+  margin:0 0 var(--s-5);
+  color:var(--noite);
+}
+.event-card .overline{
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  display:block;
+  margin-bottom:var(--s-3);
+}
+.event-info{
+  list-style:none;padding:0;margin:0;
+  display:grid;gap:var(--s-3);
+}
+.event-info li{
+  display:grid;
+  grid-template-columns:110px 1fr;
+  gap:var(--s-4);
+  padding:var(--s-3) 0;
+  border-bottom:1px solid rgba(11,18,32,0.07);
+  font-size:15px;
+  line-height:1.45;
+}
+.event-info li:last-child{border-bottom:none;}
+.event-info .k{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--azul-cinza-3);
+  align-self:start;
+  padding-top:2px;
+}
+.event-info .v{color:var(--noite);font-weight:500;}
+.calendar-buttons{
+  display:flex;flex-wrap:wrap;gap:var(--s-3);
+  margin-top:var(--s-5);
+  padding-top:var(--s-5);
+  border-top:1px solid rgba(11,18,32,0.07);
+}
+.btn-calendar{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  padding:var(--s-3) var(--s-4);
+  background:var(--noite);
+  color:var(--off-white);
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:13px;
+  letter-spacing:0.02em;
+  border-radius:3px;
+  border:1px solid var(--noite);
+  transition:transform 200ms ease, background 200ms ease;
+  cursor:pointer;
+}
+.btn-calendar:hover{
+  background:var(--noite-3);
+  transform:translateY(-1px);
+}
+.btn-calendar.ghost{
+  background:transparent;
+  color:var(--noite);
+}
+.btn-calendar.ghost:hover{
+  background:var(--noite);
+  color:var(--off-white);
+}
+
+/* =================== NEXT STEPS =================== */
+.steps{
+  padding:var(--s-9) 0;
+  background:var(--off-white-warm);
+}
+.steps-head{
+  max-width:680px;
+  margin:0 0 var(--s-8);
+}
+.steps-head .overline{
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  display:block;
+  margin-bottom:var(--s-4);
+}
+.steps-head h2{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-style:italic;
+  font-size:clamp(30px,3.8vw,44px);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  color:var(--noite);
+  margin:0;
+}
+.steps-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:var(--s-5);
+}
+.step{
+  background:#fff;
+  border:1px solid rgba(11,18,32,0.07);
+  border-radius:4px;
+  padding:var(--s-6);
+  position:relative;
+}
+.step-num{
+  display:block;
+  font-family:var(--font-display);
+  font-style:italic;
+  font-size:42px;
+  line-height:0.9;
+  color:var(--terracota);
+  margin-bottom:var(--s-4);
+}
+.step h3{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:20px;
+  line-height:1.25;
+  letter-spacing:-0.01em;
+  margin:0 0 var(--s-3);
+  color:var(--noite);
+}
+.step p{
+  font-size:14.5px;
+  line-height:1.6;
+  color:var(--texto-light-2);
+  margin:0 0 var(--s-4);
+}
+.step .step-cta{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--font-mono);
+  font-size:11.5px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  font-weight:500;
+  border-bottom:1px solid var(--terracota);
+  padding-bottom:2px;
+  transition:color 200ms;
+}
+.step .step-cta:hover{color:var(--terracota-escuro);}
+.step .step-cta.muted{
+  color:var(--azul-cinza-3);
+  border-bottom-color:var(--azul-cinza-3);
+}
+
+/* =================== EXPECTATIVA =================== */
+.recap{
+  background:var(--noite);
+  color:var(--off-white);
+  padding:var(--s-9) 0;
+}
+.recap .overline{
+  font-family:var(--font-body);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--terracota-claro);
+  display:block;
+  margin-bottom:var(--s-4);
+}
+.recap h2{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:clamp(28px,3.6vw,42px);
+  line-height:1.1;
+  letter-spacing:-0.02em;
+  color:var(--off-white);
+  max-width:760px;
+  margin:0 0 var(--s-8);
+}
+.recap-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:var(--s-5);
+}
+.recap-item{
+  border-top:1px solid rgba(255,255,255,0.12);
+  padding-top:var(--s-5);
+}
+.recap-item .num{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.16em;
+  color:var(--terracota-claro);
+  display:block;
+  margin-bottom:var(--s-3);
+}
+.recap-item h3{
+  font-family:var(--font-display);
+  font-weight:500;
+  font-size:19px;
+  line-height:1.25;
+  letter-spacing:-0.005em;
+  color:var(--off-white);
+  margin:0 0 var(--s-3);
+}
+.recap-item p{
+  font-size:14px;
+  line-height:1.55;
+  color:var(--azul-cinza);
+  margin:0;
+}
+
+/* =================== SUPPORT =================== */
+.support{
+  background:var(--off-white-warm);
+  padding:var(--s-9) 0 var(--s-10);
+}
+.support-card{
+  background:#fff;
+  border:1px solid rgba(11,18,32,0.08);
+  border-left:3px solid var(--terracota);
+  border-radius:4px;
+  padding:var(--s-7) var(--s-8);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:var(--s-7);
+  align-items:center;
+}
+.support-card h2{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:500;
+  font-size:clamp(24px,2.6vw,30px);
+  line-height:1.2;
+  letter-spacing:-0.015em;
+  margin:0 0 var(--s-3);
+  color:var(--noite);
+}
+.support-card p{
+  font-size:15.5px;
+  line-height:1.55;
+  color:var(--texto-light-2);
+  margin:0;
+}
+.support-actions{
+  display:flex;flex-direction:column;gap:var(--s-3);
+  min-width:240px;
+}
+.btn-support{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:var(--s-3);
+  padding:var(--s-3) var(--s-5);
+  background:var(--noite);
+  color:var(--off-white);
+  font-family:var(--font-body);
+  font-weight:500;
+  font-size:14px;
+  border-radius:3px;
+  border:1px solid var(--noite);
+  transition:background 200ms ease, transform 200ms ease;
+}
+.btn-support:hover{background:var(--noite-3);transform:translateY(-1px);}
+.btn-support.ghost{
+  background:transparent;color:var(--noite);
+}
+.btn-support.ghost:hover{
+  background:var(--noite);color:var(--off-white);
+}
+.btn-support .label{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--azul-cinza-2);
+  display:block;
+  margin-bottom:2px;
+}
+.btn-support.ghost .label{color:var(--azul-cinza-3);}
+
+/* =================== FOOTER =================== */
+.foot{
+  background:var(--noite);
+  color:var(--off-white);
+  padding:var(--s-7) 0;
+  text-align:center;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--azul-cinza-2);
+}
+.foot a{color:var(--areia);}
+.foot a:hover{color:var(--terracota-claro);}
+
+/* =================== GUIA SÃO PAULO =================== */
+.guide{
+  background:var(--noite);
+  color:var(--off-white);
+  padding:var(--s-9) 0;
+}
+.guide .overline{
+  font-family:var(--font-body);
+  font-size:11px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--terracota-claro);
+  display:block;margin-bottom:var(--s-4);
+}
+.guide-head{max-width:680px;margin:0 0 var(--s-8);}
+.guide-head h2{
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(28px,3.6vw,42px);line-height:1.1;letter-spacing:-0.02em;
+  color:var(--off-white);margin:0 0 var(--s-4);
+}
+.guide-head p{
+  font-size:15.5px;line-height:1.6;color:var(--azul-cinza);margin:0;
+}
+.guide-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:var(--s-5);
+}
+.guide-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:6px;
+  padding:var(--s-6);
+  display:flex;flex-direction:column;
+}
+.guide-card.guide-wide{margin-top:var(--s-5);}
+.guide-ico{
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;
+  border:1px solid rgba(224,199,163,0.25);
+  border-radius:6px;
+  color:var(--terracota-claro);
+  margin-bottom:var(--s-4);
+}
+.guide-ico svg{width:22px;height:22px;}
+.guide-card h3{
+  font-family:var(--font-display);font-weight:500;
+  font-size:21px;line-height:1.2;letter-spacing:-0.01em;
+  color:var(--off-white);margin:0 0 var(--s-2);
+}
+.guide-card .desc{
+  font-size:14px;line-height:1.55;color:var(--azul-cinza-2);
+  margin:0 0 var(--s-5);
+}
+.guide-slots{display:flex;flex-direction:column;gap:var(--s-2);margin-top:auto;}
+.guide-slots-cols{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--s-2);
+}
+.guide-slot{
+  display:flex;align-items:center;gap:var(--s-3);
+  padding:var(--s-3) var(--s-4);
+  border:1px dashed rgba(224,199,163,0.28);
+  border-radius:4px;
+  font-family:var(--font-mono);
+  font-size:11px;letter-spacing:0.04em;line-height:1.45;
+  color:var(--azul-cinza-3);
+}
+a.guide-slot{
+  border-style:solid;
+  border-color:rgba(224,199,163,0.22);
+  color:var(--azul-cinza);
+  transition:border-color 200ms ease,color 200ms ease,background 200ms ease;
+}
+a.guide-slot:hover{
+  border-color:rgba(224,199,163,0.55);
+  background:rgba(255,255,255,0.03);
+  color:var(--off-white);
+}
+.guide-slot .mark{
+  flex-shrink:0;width:16px;height:16px;border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(224,199,163,0.12);color:var(--terracota-claro);
+  font-size:12px;line-height:1;
+}
+.guide-note{
+  margin:var(--s-7) 0 0;
+  padding-top:var(--s-5);
+  border-top:1px solid rgba(255,255,255,0.08);
+  font-size:13.5px;line-height:1.6;
+  color:var(--azul-cinza-3);
+  max-width:680px;
+}
+
+/* =================== RESPONSIVE =================== */
+@media (max-width:900px){
+  .container{padding:0 var(--container-padding-mobile);}
+  .block{padding:var(--s-8) 0;}
+  .guide{padding:var(--s-8) 0;}
+  .confirm-hero{padding:var(--s-8) 0 var(--s-7);}
+  .event-card{
+    grid-template-columns:1fr;
+    gap:var(--s-6);
+    padding:var(--s-6);
+  }
+  .steps-grid{grid-template-columns:1fr;}
+  .recap-grid{grid-template-columns:1fr 1fr;}
+  .support-card{
+    grid-template-columns:1fr;
+    padding:var(--s-6);
+  }
+  .support-actions{min-width:0;}
+  .top-bar .event{display:none;}
+  .event-info li{grid-template-columns:90px 1fr;}
+}
+@media (max-width:560px){
+  .recap-grid{grid-template-columns:1fr;}
+  .calendar-buttons{flex-direction:column;align-items:stretch;}
+  .btn-calendar{justify-content:center;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ========== TOP BAR ========== -->
+  <header class="top-bar">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo-branco.png" alt="Escola do Psicólogo Master" />
+      </div>
+      <div class="event">29.08.2026 · São Paulo · 3ª Edição</div>
+    </div>
+  </header>
+
+  <!-- ========== CONFIRMAÇÃO ========== -->
+  <section class="confirm-hero">
+    <div class="container">
+      <span class="confirm-badge">
+        <span class="dot"></span>
+        Inscrição confirmada
+      </span>
+      <h1 class="confirm-title">
+        Sua vaga na 3ª edição<br/>
+        <span class="accent">está garantida.</span>
+      </h1>
+      <p class="confirm-lead">
+        Obrigado por confiar na EPM. Você acabou de garantir presença em um dia inteiro de raciocínio clínico sobre TDAH na era digital — ao lado de profissionais que decidiram pensar a clínica com mais profundidade.
+      </p>
+      <div class="confirm-meta">
+        <span>Imersão TDAH ao Longo da Vida</span>
+        <span class="sep"></span>
+        <span>3ª Edição</span>
+        <span class="sep"></span>
+        <span>São Paulo</span>
+        <span class="sep"></span>
+        <span>29.08.2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CARD COM DETALHES ========== -->
+  <section class="event-card-wrap">
+    <div class="container">
+      <div class="event-card">
+        <div>
+          <span class="overline">Detalhes do evento</span>
+          <h2>Anote na agenda. Reserve o dia inteiro.</h2>
+          <ul class="event-info">
+            <li>
+              <span class="k">Data</span>
+              <span class="v">Sábado, 29 de agosto de 2026</span>
+            </li>
+            <li>
+              <span class="k">Horário</span>
+              <span class="v">08h30 às 18h00 (horário de Brasília)</span>
+            </li>
+            <li>
+              <span class="k">Local</span>
+              <span class="v">Salas Brasil · São Paulo</span>
+            </li>
+            <li>
+              <span class="k">Endereço</span>
+              <span class="v">R. Cincinato Braga, 540 — Bela Vista, São Paulo</span>
+            </li>
+            <li>
+              <span class="k">Formato</span>
+              <span class="v">Exclusivamente presencial · sem transmissão ao vivo</span>
+            </li>
+          </ul>
+          <div class="calendar-buttons">
+            <a class="btn-calendar"
+               href="https://www.google.com/calendar/render?action=TEMPLATE&text=Imers%C3%A3o+TDAH+na+Era+Digital+%C2%B7+3%C2%AA+Edi%C3%A7%C3%A3o+EPM&dates=20260829T113000Z%2F20260829T210000Z&details=3%C2%AA+edi%C3%A7%C3%A3o+da+Imers%C3%A3o+Cl%C3%ADnica+EPM+%E2%80%94+TDAH+na+era+digital.+Sua+vaga+est%C3%A1+confirmada.&location=Salas+Brasil%2C+R.+Cincinato+Braga%2C+540+%E2%80%94+Bela+Vista%2C+S%C3%A3o+Paulo"
+               target="_blank" rel="noopener">
+              <span>Adicionar ao Google Calendar</span>
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn-calendar ghost" href="imersao-tdah-3a-edicao.ics" download>
+              <span>Baixar arquivo .ics</span>
+              <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <span class="overline">Lembrete</span>
+          <h2 style="font-size:22px;line-height:1.3;">A imersão é presencial.</h2>
+          <p style="font-size:15px;line-height:1.6;color:var(--texto-light-2);margin:0 0 var(--s-4);">
+            Não haverá transmissão ao vivo nem gravação no ingresso padrão. Programe a viagem com antecedência se você não mora em São Paulo.
+          </p>
+          <p style="font-size:14px;line-height:1.55;color:var(--azul-cinza-3);margin:0;">
+            Logo abaixo, um guia de São Paulo para quem vem de fora — hospedagem, onde comer e como chegar. As indicações são atualizadas ao longo de agosto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GUIA SÃO PAULO (PARA QUEM VEM DE FORA) ========== -->
+  <section class="guide">
+    <div class="container">
+      <span class="overline">Para quem vem de fora</span>
+      <div class="guide-head">
+        <h2>Guia rápido de São Paulo.</h2>
+        <p>O essencial para quem vai viajar até a imersão: onde ficar, onde comer e como se locomover na região das Salas Brasil, na Bela Vista. As indicações são selecionadas e atualizadas ao longo de agosto.</p>
+      </div>
+
+      <!--
+        ============================================================
+        COMO PREENCHER ESTE GUIA
+        Cada ".guide-slot" abaixo e um espaco reservado (borda tracejada).
+        Para publicar uma indicacao real, troque o <span class="guide-slot">
+        por um link <a>, mantendo a mesma estrutura interna:
+
+        <a class="guide-slot" href="https://LINK-DO-LOCAL" target="_blank" rel="noopener">
+          <span class="mark">&rarr;</span> Nome do local &mdash; bairro / distancia
+        </a>
+
+        Pode adicionar ou remover quantos slots quiser em cada categoria.
+        ============================================================
+      -->
+
+      <div class="guide-grid">
+
+        <article class="guide-card">
+          <span class="guide-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg>
+          </span>
+          <h3>Hospedagem</h3>
+          <p class="desc">Hotéis a poucos minutos das Salas Brasil, na Bela Vista e no entorno da Avenida Paulista.</p>
+          <div class="guide-slots">
+            <span class="guide-slot"><span class="mark">+</span> Hotel — nome, distância e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Hotel — nome, distância e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Hotel — nome, distância e link</span>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V7h3.5a3 3 0 0 1 0 6H9"/></svg>
+          </span>
+          <h3>Estacionamento</h3>
+          <p class="desc">Onde deixar o carro com segurança perto do local do evento.</p>
+          <div class="guide-slots">
+            <span class="guide-slot"><span class="mark">+</span> Estacionamento — nome, endereço e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Estacionamento — nome, endereço e link</span>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.4"/></svg>
+          </span>
+          <h3>Onde comer</h3>
+          <p class="desc">Restaurantes e as cantinas históricas do Bixiga, a poucos passos da imersão.</p>
+          <div class="guide-slots">
+            <span class="guide-slot"><span class="mark">+</span> Restaurante — nome, tipo e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Restaurante — nome, tipo e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Restaurante — nome, tipo e link</span>
+          </div>
+        </article>
+
+        <article class="guide-card">
+          <span class="guide-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h11v5a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4V8Z"/><path d="M16 9h2.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 4v2"/><path d="M12 4v2"/></svg>
+          </span>
+          <h3>Cafés &amp; bares</h3>
+          <p class="desc">Para um café antes da imersão ou um encontro tranquilo depois do dia.</p>
+          <div class="guide-slots">
+            <span class="guide-slot"><span class="mark">+</span> Café ou bar — nome e link</span>
+            <span class="guide-slot"><span class="mark">+</span> Café ou bar — nome e link</span>
+          </div>
+        </article>
+
+      </div>
+
+      <article class="guide-card guide-wide">
+        <span class="guide-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 10c0 6-7 11-7 11s-7-5-7-11a7 7 0 0 1 14 0Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+        </span>
+        <h3>Informações úteis para a viagem</h3>
+        <p class="desc">Transporte, aeroportos e o que mais ajudar quem ainda não conhece São Paulo.</p>
+        <div class="guide-slots guide-slots-cols">
+          <span class="guide-slot"><span class="mark">+</span> Como chegar — do aeroporto às Salas Brasil</span>
+          <span class="guide-slot"><span class="mark">+</span> Transporte na cidade — metrô, apps e táxi</span>
+          <span class="guide-slot"><span class="mark">+</span> Outra informação útil para a viagem</span>
+        </div>
+      </article>
+
+      <p class="guide-note">Esta seção está em curadoria. As indicações de hospedagem, restaurantes e serviços serão adicionadas e atualizadas ao longo de agosto, antes do evento.</p>
+
+      <!-- Espaço reservado: a "Agenda do fim de semana em São Paulo" (missas no Mosteiro de São Bento, feiras e eventos culturais de sexta 28, sábado 29 à noite e domingo 30 de agosto) será adicionada depois, quando houver programação confirmada. -->
+
+    </div>
+  </section>
+
+  <!-- ========== PRÓXIMOS PASSOS ========== -->
+  <section class="steps">
+    <div class="container">
+      <div class="steps-head">
+        <span class="overline">Próximos passos</span>
+        <h2>O que acontece a partir de agora.</h2>
+      </div>
+
+      <div class="steps-grid">
+        <article class="step">
+          <span class="step-num">01</span>
+          <h3>Email de confirmação</h3>
+          <p>Em poucos minutos, você receberá um email com o recibo da inscrição, os dados do evento e instruções práticas. Confira também a caixa de spam.</p>
+          <span class="step-cta muted">Chega automaticamente</span>
+        </article>
+
+        <article class="step">
+          <span class="step-num">02</span>
+          <h3>Grupo dos inscritos</h3>
+          <p>Entre no grupo de WhatsApp exclusivo dos participantes da 3ª edição — espaço para avisos, materiais preparatórios e contato direto com a equipe EPM.</p>
+          <a class="step-cta" href="https://chat.whatsapp.com/FvDfGy02kiiCOXYEYqFWWh" target="_blank" rel="noopener">
+            Entrar no grupo →
+          </a>
+        </article>
+
+        <article class="step">
+          <span class="step-num">03</span>
+          <h3>Comunicação oficial</h3>
+          <p>Entre 10 e 15 dias antes do evento, você recebe o último briefing: programa detalhado, mapa de chegada, recomendações de hotéis e como aproveitar melhor o dia.</p>
+          <span class="step-cta muted">Por email · ao longo de agosto</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== O QUE ESPERAR ========== -->
+  <section class="recap">
+    <div class="container">
+      <span class="overline">O que você vai viver no dia</span>
+      <h2>Quatro camadas. Oito horas de raciocínio clínico sobre cognição na era digital.</h2>
+      <div class="recap-grid">
+        <div class="recap-item">
+          <span class="num">Bloco 1</span>
+          <h3>Hiperestimulação, telas e desenvolvimento infantil</h3>
+          <p>Como o ambiente digital atravessa os primeiros anos — e o que muda na leitura clínica de sintomas atencionais na infância.</p>
+        </div>
+        <div class="recap-item">
+          <span class="num">Bloco 2</span>
+          <h3>Adolescência hiperconectada</h3>
+          <p>Redes sociais, jogos, dopamina e sono. Por que a clínica precisa diferenciar TDAH de hiperestimulação no adolescente.</p>
+        </div>
+        <div class="recap-item">
+          <span class="num">Bloco 3</span>
+          <h3>Vida adulta e colapso atencional</h3>
+          <p>IA, exaustão mental, fragmentação. O que se confunde com TDAH no adulto contemporâneo — e como conduzir.</p>
+        </div>
+        <div class="recap-item">
+          <span class="num">Bloco 4</span>
+          <h3>Quando a tecnologia ajuda</h3>
+          <p>IA clínica, ferramentas digitais e intervenção. Quando tecnologia é fator de risco, compensação ou recurso terapêutico.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUPORTE ========== -->
+  <section class="support">
+    <div class="container">
+      <div class="support-card">
+        <div>
+          <h2>Alguma dúvida sobre sua inscrição?</h2>
+          <p>Nossa equipe está disponível para ajudar com qualquer questão sobre pagamento, emissão de nota fiscal, transferência de vaga ou orientação prática para o dia.</p>
+        </div>
+        <div class="support-actions">
+          <a class="btn-support" href="https://wa.me/5519993160893?text=Ol%C3%A1%20EPM%2C%20acabei%20de%20me%20inscrever%20na%20Imers%C3%A3o%20TDAH%20%E2%80%94%203%C2%AA%20Edi%C3%A7%C3%A3o%20e%20tenho%20uma%20d%C3%BAvida%20sobre%20a%20minha%20inscri%C3%A7%C3%A3o%3A%20" target="_blank" rel="noopener">
+            <span>
+              <span class="label">WhatsApp · EPM</span>
+              <span>(19) 99316-0893</span>
+            </span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a class="btn-support ghost" href="mailto:contato@escoladopsicologo.com">
+            <span>
+              <span class="label">Email</span>
+              <span>contato@escoladopsicologo.com</span>
+            </span>
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="foot">
+    <div class="container">
+      Escola do Psicólogo Master · 3ª Edição da Imersão Clínica EPM · <a href="index.html">Voltar para a página do evento</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

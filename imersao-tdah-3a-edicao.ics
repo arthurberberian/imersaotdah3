@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Escola do Psicologo Master//Imersao TDAH 3a Edicao 2026//PT-BR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:imersao-tdah-3a-edicao-2026-08-29@escoladopsicologo.com
+DTSTAMP:20260519T120000Z
+DTSTART:20260829T113000Z
+DTEND:20260829T210000Z
+SUMMARY:Imersão TDAH na Era Digital · 3ª Edição EPM
+DESCRIPTION:3ª edição da Imersão Clínica EPM — TDAH na era digital.\n\nUm dia inteiro de raciocínio clínico sobre cognição\, hiperestimulação\, motivação e sofrimento psíquico em uma cultura moldada por telas\, algoritmos e excesso de estímulo.\n\nCom Dr. Arthur Berberian (UNIFESP · USP · PhD Psiquiatria) e Dra. Bruna Trevisan (Mackenzie · FMUSP-HC · UNIFESP · Pós-doc).\n\nHorário: 08h30 às 18h00 (horário de Brasília).\nLocal: Salas Brasil — R. Cincinato Braga\, 540\, Bela Vista\, São Paulo.\n\nFormato exclusivamente presencial. Sem transmissão ao vivo.\n\nMais informações e suporte: https://imersaotdah.escoladopsicologo.com
+LOCATION:Salas Brasil — R. Cincinato Braga\, 540\, Bela Vista\, São Paulo\, SP\, Brasil
+URL:https://imersaotdah.escoladopsicologo.com
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+CATEGORIES:Educação,Saúde Mental,Imersão Clínica
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Imersão TDAH em uma semana — 29 de agosto às 08h30 em São Paulo
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:Imersão TDAH amanhã — 08h30 nas Salas Brasil (Bela Vista, São Paulo)
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT2H
+ACTION:DISPLAY
+DESCRIPTION:Imersão TDAH começa em 2 horas — Salas Brasil, Bela Vista
+END:VALARM
+END:VEVENT
+END:VCALENDAR

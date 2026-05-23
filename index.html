@@ -6,10 +6,25 @@
 <title>Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição · 29.08.2026</title>
 <meta name="description" content="3ª edição da Imersão Clínica EPM — TDAH na era digital. Um dia inteiro de raciocínio clínico com Arthur Berberian e Bruna Trevisan. 29 de agosto de 2026, São Paulo." />
 
+<link rel="canonical" href="https://imersaotdah.escoladopsicologo.com/" />
+<meta name="theme-color" content="#0B1220" />
+<link rel="icon" href="assets/favicon.png" type="image/png" />
+<link rel="apple-touch-icon" href="assets/favicon.png" />
+
 <meta property="og:title" content="Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição" />
 <meta property="og:description" content="29 de agosto de 2026, São Paulo. Um dia inteiro de raciocínio clínico aplicado ao TDAH na era digital." />
 <meta property="og:type" content="website" />
-<meta property="og:image" content="assets/hero-bruna.webp" />
+<meta property="og:url" content="https://imersaotdah.escoladopsicologo.com/" />
+<meta property="og:image" content="https://imersaotdah.escoladopsicologo.com/assets/og-card.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Escola do Psicólogo Master" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição" />
+<meta name="twitter:description" content="29 de agosto de 2026, São Paulo. Um dia inteiro de raciocínio clínico aplicado ao TDAH na era digital." />
+<meta name="twitter:image" content="https://imersaotdah.escoladopsicologo.com/assets/og-card.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -104,6 +119,8 @@
   border-left:2px solid var(--terracota);
   font-size:clamp(15px, 1.25vw, 18px);line-height:1.55;color:var(--azul-cinza);
 }
+/* Variante A — alterna frases entre desktop e mobile (mobile = versão enxuta) */
+.hero-only-mobile{ display:none; }
 
 /* ============ MANIFESTO V2 — pausa editorial após a Hero ============ */
 #manifesto{
@@ -245,6 +262,14 @@
   margin-bottom:clamp(56px, 7vh, 80px);
 }
 .edicao-card{display:flex;flex-direction:column;}
+.edicao-video{
+  position:relative;aspect-ratio:16/9;
+  margin-bottom:clamp(20px, 2.5vh, 32px);
+  background:var(--noite-3);overflow:hidden;border-radius:4px;
+}
+.edicao-video iframe{
+  position:absolute;inset:0;width:100%;height:100%;border:0;display:block;
+}
 .edicao-media{
   position:relative;display:block;
   aspect-ratio:4/3;overflow:hidden;
@@ -432,8 +457,9 @@
     letter-spacing:-0.015em !important;
     max-width:none !important;
   }
-  /* Texto de apoio repete a ideia do subtítulo — esconde no mobile */
-  .hero-v4-support{ display:none !important; }
+  /* Variante A — versão enxuta: troca para as frases curtas de mobile */
+  .hero-only-desktop{ display:none !important; }
+  .hero-only-mobile{ display:block !important; }
 
   /* ---- Bloco meta (data + CTA) empilhado e full-width ---- */
   #hero .hero-meta{
@@ -497,6 +523,53 @@
   .topbar.menu-open .topbar-menu-btn::before{font-size:24px;}
 }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationEvent",
+  "name": "Imersão Clínica EPM — TDAH na Era Digital · 3ª Edição",
+  "description": "Um dia inteiro de raciocínio clínico sobre TDAH na era digital, com Arthur Berberian e Bruna Trevisan.",
+  "startDate": "2026-08-29T08:30:00-03:00",
+  "endDate": "2026-08-29T18:00:00-03:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "image": "https://imersaotdah.escoladopsicologo.com/assets/og-card.jpg",
+  "url": "https://imersaotdah.escoladopsicologo.com/",
+  "location": {
+    "@type": "Place",
+    "name": "Salas Brasil",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Cincinato Braga, 540 — Bela Vista",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "postalCode": "01333-010",
+      "addressCountry": "BR"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Escola do Psicólogo Master",
+    "url": "https://imersaotdah.escoladopsicologo.com/"
+  },
+  "performer": [
+    { "@type": "Person", "name": "Arthur Berberian" },
+    { "@type": "Person", "name": "Bruna Trevisan" }
+  ],
+  "offers": {
+    "@type": "Offer",
+    "name": "Lote 1 · Antecipado",
+    "price": "797",
+    "priceCurrency": "BRL",
+    "availability": "https://schema.org/InStock",
+    "url": "https://imersaotdah.escoladopsicologo.com/#investimento",
+    "validThrough": "2026-06-20"
+  }
+}
+</script>
+
+<noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
+
 </head>
 <body>
 
@@ -505,7 +578,7 @@
   <!-- Row 1 · Nav -->
   <div class="topbar-nav">
     <div class="nav-inner">
-      <button class="topbar-menu-btn" aria-label="Menu" type="button">≡</button>
+      <button class="topbar-menu-btn" type="button" aria-label="Menu" aria-expanded="false">≡</button>
       <a href="#manifesto">A tese</a>
       <a href="#programa">Programa</a>
       <a href="#anfitrioes">Quem conduz</a>
@@ -557,15 +630,20 @@
         <span class="hero-display-tdah">TDAH</span>
         <span class="hero-display-era">na Era Digital</span>
       </h1>
-      <p class="hero-v4-subtitle">
+      <p class="hero-v4-subtitle hero-only-desktop">
         Uma discussão clínica sobre risco, recurso e responsabilidade no ambiente digital.
       </p>
-      <p class="hero-v4-support">
+      <p class="hero-v4-subtitle hero-only-mobile">
+        Diagnóstico, ambiente e desregulação na era digital.
+      </p>
+      <p class="hero-v4-support hero-only-desktop">
         Quando reduzir telas, como reorganizar o ambiente digital e quais tecnologias podem funcionar como recurso terapêutico.
       </p>
       <div class="hero-meta">
-        <div class="hero-meta-text">IMERSÃO PRESENCIAL · TDAH AO LONGO DA VIDA
-29.AGO.2026 · SALAS BRASIL · SÃO PAULO</div>
+        <div class="hero-meta-text">
+          <span class="hero-only-desktop">IMERSÃO PRESENCIAL · TDAH AO LONGO DA VIDA<br />29.AGO.2026 · SALAS BRASIL · SÃO PAULO</span>
+          <span class="hero-only-mobile">29 AGO 2026 · SÃO PAULO</span>
+        </div>
         <div class="hero-actions">
           <a href="#investimento" class="btn-primary btn-large">Reservar lugar na sala →</a>
           <a href="#experiencia" class="btn-ghost">Ver a experiência <span class="arrow">→</span></a>
@@ -623,32 +701,24 @@
 
       <div class="edicoes-v2-cards">
         <article class="edicao-card">
-          <a class="edicao-media" href="https://youtube.com/shorts/3ZyGD9YUcjU" target="_blank" rel="noopener" aria-label="Assistir registro da 2ª edição — São Paulo · 2025">
-            <img src="assets/doc-1.jpg" alt="2ª edição da Imersão TDAH, São Paulo · 2025" loading="lazy" style="object-position:center 15%" />
-            <span class="edicao-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="8,5 19,12 8,19" fill="currentColor" stroke="none"/></svg>
-            </span>
-          </a>
+          <div class="edicao-video">
+            <iframe src="https://www.youtube.com/embed/3ZyGD9YUcjU" title="Encontro de São Paulo, 2025 — Imersão TDAH, 2ª edição" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           <div class="edicao-body">
             <span class="edicao-tag">São Paulo · 2025</span>
             <h3 class="edicao-title">2ª edição</h3>
             <p class="edicao-text">Uma sala ampliada, marcada por casos, perguntas e discussões clínicas que impulsionaram uma nova etapa da trajetória.</p>
-            <a class="edicao-cta" href="https://youtube.com/shorts/3ZyGD9YUcjU" target="_blank" rel="noopener">Assistir registro <span class="arrow">→</span></a>
           </div>
         </article>
 
         <article class="edicao-card">
-          <a class="edicao-media" href="https://youtu.be/cZrTFIyy3Nc" target="_blank" rel="noopener" aria-label="Assistir registro da 1ª edição — Recife · 2024">
-            <img src="assets/recife-2024.webp" alt="Dra. Bruna Trevisan no palco da 1ª edição da Imersão TDAH, Recife · 2024" loading="lazy" />
-            <span class="edicao-play" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="8,5 19,12 8,19" fill="currentColor" stroke="none"/></svg>
-            </span>
-          </a>
+          <div class="edicao-video">
+            <iframe src="https://www.youtube.com/embed/cZrTFIyy3Nc" title="Encontro de Recife, 2024 — Imersão TDAH, 1ª edição" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
           <div class="edicao-body">
             <span class="edicao-tag">Recife · 2024</span>
             <h3 class="edicao-title">1ª edição</h3>
             <p class="edicao-text">O início de uma imersão presencial dedicada ao raciocínio clínico sobre o TDAH ao longo da vida.</p>
-            <a class="edicao-cta" href="https://youtu.be/cZrTFIyy3Nc" target="_blank" rel="noopener">Assistir registro <span class="arrow">→</span></a>
           </div>
         </article>
       </div>
@@ -826,16 +896,8 @@ CRP 06/94301</p>
               <div class="lbl">Vagas presenciais<br/>(máx. por edição)</div>
             </div>
             <div class="sala-stat">
-              <div class="num">68%</div>
-              <div class="lbl">São psicólogos com<br/>5+ anos de clínica</div>
-            </div>
-            <div class="sala-stat">
               <div class="num">19</div>
-              <div class="lbl">Estados representados<br/>na 2ª edição</div>
-            </div>
-            <div class="sala-stat">
-              <div class="num">4 em 5</div>
-              <div class="lbl">Voltariam<br/>(pesquisa pós-evento)</div>
+              <div class="lbl">Estados representados<br/>nas duas edições</div>
             </div>
           </div>
         </div>
@@ -861,35 +923,6 @@ CRP 06/94301</p>
         <span class="overline">Conceito-chave</span>
         <p>A tecnologia pode intensificar sintomas, produzir ruído diagnóstico ou funcionar como recurso terapêutico.</p>
       </aside>
-      <div class="timeline">
-        <div class="timeline-row"><div class="time">08:30</div><div class="title-cell">Credenciamento</div><div class="by empty">—</div></div>
-        <div class="timeline-row"><div class="time">09:00</div><div class="title-cell">Abertura + apresentação do caso longitudinal</div><div class="by">
-</div></div>
-        <div class="timeline-row feature"><div class="time">09:30</div><div class="title-cell">BLOCO 1 · INFÂNCIA
-
-Infância: telas, desenvolvimento e desregulação.</div><div class="by">
-</div></div>
-        <div class="timeline-row"><div class="time">10:45</div><div class="title-cell">Café</div><div class="by empty">—</div></div>
-        <div class="timeline-row feature"><div class="time">11:00</div><div class="title-cell">BLOCO 2 · ADOLESCÊNCIA
-
-Adolescência hiperconectada: redes sociais, jogos e recompensa imediata.</div><div class="by">
-</div></div>
-        <div class="timeline-row sub"><div class="time">11:45</div><div class="title-cell"><span class="kicker">Bloco 2 · Sub-tópico</span>Sono, hiperestimulação e risco psiquiátrico no desenvolvimento</div><div class="by">
-</div></div>
-        <div class="timeline-row"><div class="time">12:15</div><div class="title-cell">Almoço — não incluso</div><div class="by empty">—</div></div>
-        <div class="timeline-row feature"><div class="time">14:00</div><div class="title-cell">BLOCO 3 · VIDA ADULTA
-
-Vida adulta hiperconectada: IA, exaustão e desorganização atencional.</div><div class="by">
-</div></div>
-        <div class="timeline-row"><div class="time">15:15</div><div class="title-cell">Café</div><div class="by empty">—</div></div>
-        <div class="timeline-row feature"><div class="time">15:30</div><div class="title-cell">BLOCO 4 · TECNOLOGIA A FAVOR
-
-Quando a tecnologia ajuda: ferramentas digitais, IA e intervenção clínica.</div><div class="by">
-</div></div>
-        <div class="timeline-row"><div class="time">16:45</div><div class="title-cell">Mesa integradora + Q&amp;A</div><div class="by">
-</div></div>
-        <div class="timeline-row"><div class="time">18:00</div><div class="title-cell">Encerramento</div><div class="by empty">—</div></div>
-      </div>
     </div>
   </section>
 
@@ -1059,12 +1092,18 @@ Quando a tecnologia ajuda: ferramentas digitais, IA e intervenção clínica.</d
   const topbar = document.querySelector('.topbar');
   const btn = document.querySelector('.topbar-menu-btn');
   if (!topbar || !btn) return;
+  function syncMenuState(){
+    const open = topbar.classList.contains('menu-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Menu');
+  }
   btn.addEventListener('click', () => {
     topbar.classList.toggle('menu-open');
+    syncMenuState();
   });
   // Close on nav link click
   topbar.querySelectorAll('.topbar-nav a').forEach(a => {
-    a.addEventListener('click', () => topbar.classList.remove('menu-open'));
+    a.addEventListener('click', () => { topbar.classList.remove('menu-open'); syncMenuState(); });
   });
 })();
 
@@ -1109,7 +1148,7 @@ Quando a tecnologia ajuda: ferramentas digitais, IA e intervenção clínica.</d
 
 /* ============ SMOOTH OFFSET FOR ANCHORS ============ */
 (function(){
-  const offset = 110;
+  const offset = 128;
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
       const id = a.getAttribute('href');
