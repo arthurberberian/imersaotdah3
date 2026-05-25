@@ -850,6 +850,7 @@ a{color:inherit;text-decoration:none;}
 }
 .lot-price .currency{font-size:18px;color:var(--azul-cinza-3);font-weight:500;letter-spacing:0.02em;}
 .lot-sub{font-size:13px;line-height:1.5;color:var(--azul-cinza-3);margin-top:-6px;}
+.lot-parcela{font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.005em;color:var(--terracota-escuro);margin-top:-6px;}
 .lot-cta{margin-top:auto;padding-top:16px;}
 .lot-cta .btn-primary{width:100%;justify-content:center;}
 .lot-fine{
