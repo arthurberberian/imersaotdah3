@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Comparação — E2b: com borda vs sem borda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --noite:#0B1220; --noite-2:#111A2C; --noite-3:#1A2438; --noite-4:#243049;
+  --off-white-warm:#F5F2E8; --off-white:#FAF9F4;
+  --terracota:#C46D37; --terracota-claro:#D88959; --terracota-escuro:#9E5328;
+  --areia:#E0C7A3; --azul-cinza:#C7CED6; --azul-cinza-2:#8E97A3; --azul-cinza-3:#5C6573;
+}
+html,body{margin:0;padding:0;background:#1f2937;color:#fff;font-family:'Manrope', system-ui, sans-serif;}
+*,*::before,*::after{box-sizing:border-box;}
+.ab{background:var(--noite);color:var(--off-white);font-family:'Manrope', sans-serif;position:relative;overflow:hidden;width:100%;}
+
+.doc-header{
+  position:sticky;top:0;z-index:50;
+  background:#0B1220;border-bottom:1px solid #243049;
+  padding:14px 28px;display:flex;align-items:center;justify-content:space-between;
+}
+.doc-header .title{font-family:'Fraunces', serif;font-style:italic;font-weight:500;font-size:18px;color:#FAF9F4;}
+.doc-header .meta{font-size:11px;color:#8E97A3;letter-spacing:0.08em;text-transform:uppercase;}
+
+.compare-strip{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:32px 56px 16px;
+  font-family:'Manrope',sans-serif;
+}
+.compare-strip h1{
+  font-family:'Fraunces',serif;font-style:italic;font-weight:500;
+  font-size:32px;letter-spacing:-0.02em;color:#FAF9F4;margin:0;
+}
+.compare-strip p{font-size:13px;color:#8E97A3;max-width:520px;margin:0;line-height:1.5;}
+
+.section-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:#D88959;
+  padding:12px 56px 6px;
+  display:flex;align-items:center;gap:14px;
+}
+.section-label .pill{
+  display:inline-block;background:rgba(196,109,55,0.15);
+  border:1px solid rgba(196,109,55,0.4);
+  padding:4px 10px;border-radius:99px;
+  font-size:10px;letter-spacing:0.14em;color:#D88959;
+}
+.section-label .note{color:#8E97A3;font-size:10.5px;letter-spacing:0.14em;}
+
+.artboard-wrap{
+  margin:0 56px 56px;
+  width: calc(100% - 112px);
+  max-width: 1400px;
+  border:1px solid rgba(255,255,255,0.06);
+  box-shadow:0 14px 40px rgba(0,0,0,0.35);
+}
+
+@media (max-width:760px){
+  .compare-strip,.section-label{padding-left:18px;padding-right:18px;}
+  .artboard-wrap{margin:0 18px 28px;width:calc(100% - 36px);}
+}
+</style>
+</head>
+<body>
+
+<div class="doc-header">
+  <div class="title">Comparação — E2b · com borda vs sem borda</div>
+  <div class="meta">Lado a lado · escala real</div>
+</div>
+
+<div class="compare-strip">
+  <h1>Qual treatment você prefere?</h1>
+  <p>Mesmo conteúdo, mesmo layout. A única diferença está no contorno fino terracota em volta de cada card. Role pra ver os dois full-size.</p>
+</div>
+
+<div class="section-label">
+  <span class="pill">OPÇÃO 1</span>
+  COM BORDA TERRACOTA FINA
+  <span class="note">— mais "card", mais delimitado</span>
+</div>
+<div class="artboard-wrap">
+  <div id="root-borda"></div>
+</div>
+
+<div class="section-label">
+  <span class="pill">OPÇÃO 2</span>
+  SEM BORDA
+  <span class="note">— mais "respiro", o glow areia/central faz o trabalho</span>
+</div>
+<div class="artboard-wrap">
+  <div id="root-sem-borda"></div>
+</div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="variants-countdown.jsx"></script>
+<script type="text/babel" src="variants-hero.jsx"></script>
+<script type="text/babel" src="variants-entrega.jsx"></script>
+
+<script type="text/babel">
+  // Wait until variants-entrega.jsx has registered the components on window
+  const tryMount = () => {
+    if(window.E2b_Pratico_Desktop && window.E2b_Pratico_NoBorder_Desktop){
+      ReactDOM.createRoot(document.getElementById('root-borda')).render(<window.E2b_Pratico_Desktop/>);
+      ReactDOM.createRoot(document.getElementById('root-sem-borda')).render(<window.E2b_Pratico_NoBorder_Desktop/>);
+    } else {
+      setTimeout(tryMount, 50);
+    }
+  };
+  tryMount();
+</script>
+</body>
+</html>
