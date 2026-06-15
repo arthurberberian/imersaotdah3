@@ -1,0 +1,20 @@
+# Arquivos que NÃO devem ser publicados no site (Cloudflare Workers assets).
+# O deploy usa a raiz do repo como pasta de assets; sem isto, o wrangler tenta
+# publicar até a pasta .git (packfile de 45 MiB) e estoura o limite de 25 MiB.
+
+# Controle de versão / metadados do repo
+.git
+.gitignore
+.assetsignore
+.design-canvas.state.json
+
+# Pastas de trabalho / exploração (não fazem parte do site no ar)
+exploracao
+uploads
+assets/_originais
+
+# Documentos e fontes de trabalho
+*.md
+*.docx
+*.ics
+design-system-epm.html
