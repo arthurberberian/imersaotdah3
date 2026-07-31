@@ -25,10 +25,16 @@
 <meta name="twitter:title" content="Imersão Clínica EPM · TDAH na Era Digital · 3ª Edição" />
 <meta name="twitter:description" content="Evento presencial para psicólogos, neuropsicólogos e psiquiatras sobre TDAH, hiperestimulação digital e desregulação atencional. 29 de agosto, São Paulo." />
 <meta name="twitter:image" content="https://imersaotdah.escoladopsicologo.com/assets/og-card.jpg" />
+<meta property="og:image:alt" content="Imersão TDAH na Era Digital — 29 de agosto de 2026, São Paulo" />
+<meta name="twitter:image:alt" content="Imersão TDAH na Era Digital — evento presencial em São Paulo" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Preload da imagem LCP do hero (desktop: mosaico maior · mobile: retrato) -->
+<link rel="preload" as="image" href="assets/hero-stage.webp" media="(min-width: 901px)" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/hero-bruna.webp" media="(max-width: 900px)" fetchpriority="high" />
 
 <link rel="stylesheet" href="assets/styles.css" />
 
@@ -45,6 +51,12 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '592122230538546');
 fbq('init', '244037803216657');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'Imersão TDAH na Era Digital 2026',
+  content_type: 'product',
+  value: 797,
+  currency: 'BRL'
+});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
@@ -578,13 +590,14 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
     { "@type": "Person", "name": "Arthur Berberian" },
     { "@type": "Person", "name": "Bruna Trevisan" }
   ],
+  "maximumAttendeeCapacity": 200,
   "offers": {
     "@type": "Offer",
     "name": "Lote 1 · Antecipado",
     "price": "797",
     "priceCurrency": "BRL",
     "availability": "https://schema.org/InStock",
-    "url": "https://imersaotdah.escoladopsicologo.com/#investimento",
+    "url": "https://payfast.greenn.com.br/ngeafnx",
     "validThrough": "2026-08-12"
   }
 }
@@ -641,7 +654,7 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   <!-- ============== B3 · HERO DOCUMENTAL SILENCIOSO ============== -->
   <section id="hero" data-screen-label="01 Hero documental">
     <div class="hero-mosaic" aria-hidden="true">
-      <div class="ph"><img src="assets/hero-stage.webp" alt="" loading="lazy" /></div>
+      <div class="ph"><img src="assets/hero-stage.webp" alt="" loading="eager" fetchpriority="high" /></div>
       <div class="ph"><img src="assets/hero-question.webp" alt="" style="object-position:center 30%" loading="lazy" /></div>
       <div class="ph"><img src="assets/hero-bruna.webp" alt="" style="object-position:center 25%" loading="eager" fetchpriority="high" /></div>
     </div>
@@ -652,10 +665,7 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
         <span class="hero-display-tdah">TDAH</span>
         <span class="hero-display-era">na Era Digital</span>
       </h1>
-      <p class="hero-v4-subtitle hero-only-desktop">
-        Como diferenciar TDAH, hiperestimulação digital e desregulação atencional.
-      </p>
-      <p class="hero-v4-subtitle hero-only-mobile">
+      <p class="hero-v4-subtitle">
         Como diferenciar TDAH, hiperestimulação digital e desregulação atencional.
       </p>
       <div class="hero-meta">
@@ -1164,16 +1174,17 @@ CRP 06/94301</p>
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 })();
 
-/* ============ SMOOTH OFFSET FOR ANCHORS ============ */
+/* ============ SMOOTH OFFSET FOR ANCHORS (topbar dinâmica) ============ */
 (function(){
-  const offset = 128;
+  const topbar = document.querySelector('.topbar');
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', (e)=>{
       const id = a.getAttribute('href');
-      if(id.length < 2) return;
+      if(!id || id.length < 2) return;
       const target = document.querySelector(id);
       if(!target) return;
       e.preventDefault();
+      const offset = (topbar ? topbar.getBoundingClientRect().height : 0) + 16;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({top, behavior:'smooth'});
     });
@@ -1189,33 +1200,51 @@ CRP 06/94301</p>
   </svg>
 </template>
 
-<!-- UTM / sck tracking — propaga parâmetros para os links de checkout (greenn) -->
+<!-- UTM / sck tracking + InitiateCheckout — propaga parâmetros para os links de checkout (greenn) -->
 <script>
-  let prefix = ["https://payfast.greenn.com.br"];
-  function getParams() {
-    let t = "";
-    try {
-      let e = window.top.location.href,
-          r = new URL(e);
-      if (null != r) {
-        let a = r.searchParams.get("utm_source"),
-            n = r.searchParams.get("utm_medium"),
-            o = r.searchParams.get("utm_campaign"),
-            m = r.searchParams.get("utm_term"),
-            c = r.searchParams.get("utm_content");
-        if (e.indexOf("?") !== -1) {
-          t = "&sck=" + a + "|" + n + "|" + o + "|" + m + "|" + c;
-        }
+(function () {
+  var CHECKOUT_HOST = 'payfast.greenn.com.br';
+  var ALLOWED = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+  // Coleta apenas os UTMs presentes na URL da página (sem valores "null")
+  var pageParams = new URLSearchParams(window.location.search);
+  var tracking = {};
+  ALLOWED.forEach(function (key) {
+    var value = pageParams.get(key);
+    if (value) tracking[key] = value;
+  });
+  var hasTracking = Object.keys(tracking).length > 0;
+  // sck só com os valores que existem: nunca gera "null|null|null|null|null"
+  var sck = ALLOWED.map(function (key) { return tracking[key] || ''; }).join('|');
+
+  var links = Array.prototype.slice.call(document.querySelectorAll('a[href*="' + CHECKOUT_HOST + '"]'));
+  links.forEach(function (link) {
+    // Propaga UTMs para o checkout
+    if (hasTracking) {
+      try {
+        var url = new URL(link.href);
+        Object.keys(tracking).forEach(function (key) {
+          url.searchParams.set(key, tracking[key]);
+        });
+        url.searchParams.set('sck', sck);
+        link.href = url.toString();
+      } catch (err) {
+        console.error('Erro ao aplicar UTMs:', err);
       }
-    } catch (err) {}
-    return t;
-  }
-  !function() {
-    var t = new URLSearchParams(window.location.search);
-    t.toString() && document.querySelectorAll("a").forEach(function(e) {
-      for (let r = 0; r < prefix.length; r++) -1 !== e.href.indexOf(prefix[r]) && (-1 === e.href.indexOf("?") ? e.href += "?" + t.toString() + getParams() : e.href += "&" + t.toString() + getParams());
+    }
+    // Dispara InitiateCheckout ao sair para o checkout
+    link.addEventListener('click', function () {
+      if (typeof fbq === 'function') {
+        fbq('track', 'InitiateCheckout', {
+          content_name: 'Imersão TDAH na Era Digital 2026',
+          content_type: 'product',
+          value: 797,
+          currency: 'BRL'
+        });
+      }
     });
-  }();
+  });
+})();
 </script>
 
 </body>
