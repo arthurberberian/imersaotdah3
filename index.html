@@ -30,7 +30,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500;1,9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <!-- Preload da imagem LCP do hero (desktop: mosaico maior · mobile: retrato) -->
 <link rel="preload" as="image" href="assets/hero-stage.webp" media="(min-width: 901px)" fetchpriority="high" />
@@ -503,9 +503,9 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
     gap:18px !important;
   }
   .hero-meta-text{
-    font-size:10px !important;
-    letter-spacing:0.14em !important;
-    line-height:1.7 !important;
+    font-size:12px !important;
+    letter-spacing:0.1em !important;
+    line-height:1.55 !important;
     white-space:normal !important;
   }
   .hero-actions{
@@ -555,6 +555,102 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   .topbar.menu-open .topbar-menu-btn::before{content:'\00d7';}
   .topbar.menu-open .topbar-menu-btn{font-size:0;}
   .topbar.menu-open .topbar-menu-btn::before{font-size:24px;}
+}
+
+/* ============ RESPONSIVO · celular pequeno (≤600px) ============ */
+@media (max-width:600px){
+  .hero-display-tdah{
+    font-size:clamp(64px, 21vw, 92px) !important;
+  }
+  .hero-display-era{
+    font-size:clamp(30px, 9.5vw, 43px) !important;
+  }
+  .hero-v4-subtitle{
+    margin-top:18px !important;
+    font-size:16px !important;
+    line-height:1.35 !important;
+  }
+  #hero .hero-meta{
+    margin-top:22px !important;
+  }
+}
+
+/* ============ RESPONSIVO · tablet retrato (601–900px) ============ */
+@media (min-width:601px) and (max-width:900px){
+  #hero .hero-content{
+    padding-left:48px !important;
+    padding-right:48px !important;
+    padding-bottom:54px !important;
+  }
+  .hero-display-tdah{
+    font-size:clamp(94px, 17vw, 124px) !important;
+  }
+  .hero-display-era{
+    font-size:clamp(46px, 7.5vw, 62px) !important;
+  }
+  .hero-v4-subtitle{
+    max-width:620px !important;
+    font-size:21px !important;
+  }
+  .hero-actions{
+    max-width:480px;
+  }
+}
+
+/* ============ RESPONSIVO · tablet paisagem / notebook pequeno (901–1180px) ============ */
+@media (min-width:901px) and (max-width:1180px){
+  #hero .hero-content{
+    padding-left:56px !important;
+    padding-right:56px !important;
+    padding-bottom:96px !important;
+  }
+  .hero-display-tdah{
+    font-size:clamp(100px, 12vw, 138px);
+  }
+  .hero-display-era{
+    font-size:clamp(52px, 6.5vw, 72px);
+  }
+  .hero-v4-subtitle{
+    max-width:680px;
+  }
+  .topbar-countdown .cd-seg,
+  .topbar-countdown .sep-seg{
+    display:none;
+  }
+}
+
+/* ============ FACHADA DE YOUTUBE (carrega player só no clique) ============ */
+.edicao-video .yt-facade{
+  position:absolute;inset:0;width:100%;height:100%;
+  display:block;padding:0;border:0;cursor:pointer;
+  background:var(--noite-3);
+}
+.edicao-video .yt-facade img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(0.92) contrast(1.02) brightness(0.9);
+  transition:filter 400ms ease, transform 600ms ease;
+}
+.edicao-video .yt-facade:hover img{
+  filter:saturate(1) contrast(1.02) brightness(1);
+  transform:scale(1.02);
+}
+.edicao-video .yt-play{
+  position:absolute;top:50%;left:50%;
+  width:64px;height:64px;margin:-32px 0 0 -32px;
+  border-radius:50%;
+  background:rgba(11,18,32,0.78);
+  border:1px solid rgba(255,255,255,0.25);
+  transition:background 300ms ease, transform 300ms ease;
+}
+.edicao-video .yt-play::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-40%,-50%);
+  border-style:solid;border-width:11px 0 11px 18px;
+  border-color:transparent transparent transparent var(--off-white);
+}
+.edicao-video .yt-facade:hover .yt-play{
+  background:var(--terracota);
+  transform:scale(1.08);
 }
 </style>
 <script type="application/ld+json">
@@ -661,6 +757,7 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
     <div class="hero-overlay"></div>
     <div class="hero-vignette"></div>
     <div class="hero-content">
+      <p class="hero-audience">Para psicólogos, neuropsicólogos e psiquiatras</p>
       <h1 class="hero-display-lockup">
         <span class="hero-display-tdah">TDAH</span>
         <span class="hero-display-era">na Era Digital</span>
@@ -731,7 +828,10 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
       <div class="edicoes-v2-cards">
         <article class="edicao-card">
           <div class="edicao-video">
-            <iframe src="https://www.youtube.com/embed/3ZyGD9YUcjU" title="Encontro de São Paulo, 2025 — Imersão TDAH, 2ª edição" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button class="yt-facade" type="button" data-yt-id="3ZyGD9YUcjU" data-yt-title="Encontro de São Paulo, 2025 — Imersão TDAH, 2ª edição" aria-label="Reproduzir vídeo: Encontro de São Paulo, 2025 — Imersão TDAH, 2ª edição">
+              <img src="https://i.ytimg.com/vi/3ZyGD9YUcjU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+              <span class="yt-play" aria-hidden="true"></span>
+            </button>
           </div>
           <div class="edicao-body">
             <span class="edicao-tag">São Paulo · 2025</span>
@@ -742,7 +842,10 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
 
         <article class="edicao-card">
           <div class="edicao-video">
-            <iframe src="https://www.youtube.com/embed/cZrTFIyy3Nc" title="Encontro de Recife, 2024 — Imersão TDAH, 1ª edição" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <button class="yt-facade" type="button" data-yt-id="cZrTFIyy3Nc" data-yt-title="Encontro de Recife, 2024 — Imersão TDAH, 1ª edição" aria-label="Reproduzir vídeo: Encontro de Recife, 2024 — Imersão TDAH, 1ª edição">
+              <img src="https://i.ytimg.com/vi/cZrTFIyy3Nc/hqdefault.jpg" alt="" loading="lazy" width="480" height="360" />
+              <span class="yt-play" aria-hidden="true"></span>
+            </button>
           </div>
           <div class="edicao-body">
             <span class="edicao-tag">Recife · 2024</span>
@@ -1172,6 +1275,22 @@ CRP 06/94301</p>
     });
   },{threshold:0.08, rootMargin:'0px 0px -60px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+})();
+
+/* ============ FACHADA DE YOUTUBE — player só após o clique ============ */
+(function(){
+  document.querySelectorAll('.yt-facade').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const id = btn.getAttribute('data-yt-id');
+      if(!id) return;
+      const iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+      iframe.title = btn.getAttribute('data-yt-title') || 'Vídeo';
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      btn.replaceWith(iframe);
+    });
+  });
 })();
 
 /* ============ SMOOTH OFFSET FOR ANCHORS (topbar dinâmica) ============ */
