@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100">
+  <!-- EPM · Marca M-portico · v1.1.1 · versao cobre (aproximacao vetorial do ativo texturizado) -->
+  <defs><linearGradient id="cobre" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#8A5626"/><stop offset=".42" stop-color="#C98A4B"/>
+    <stop offset=".58" stop-color="#E8C08A"/><stop offset="1" stop-color="#8A5626"/>
+  </linearGradient></defs>
+  <path d="M2 98 L2 2 L118 2 L118 98 L107 98 L107 17 Q107 13 103 13 L17 13 Q13 13 13 17 L13 98 Z M22 98 L22 41 Q22 19 43.75 19 Q65.5 19 65.5 41 L65.5 98 L54.5 98 L54.5 43 Q54.5 30 43.75 30 Q33 30 33 43 L33 98 Z M54.5 98 L54.5 41 Q54.5 19 76.25 19 Q98 19 98 41 L98 98 L87 98 L87 43 Q87 30 76.25 30 Q65.5 30 65.5 43 L65.5 98 Z" fill="url(#cobre)"/>
+</svg>
