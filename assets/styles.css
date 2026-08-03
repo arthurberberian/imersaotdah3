@@ -1001,3 +1001,40 @@ a{color:inherit;text-decoration:none;}
   html{scroll-behavior:auto;}
   .reveal{opacity:1 !important;transform:none !important;}
 }
+
+/* =================== SISTEMA TIPOGRAFICO DE TITULOS ===================
+   4 variantes escolhidas pela FUNCAO da copy (nao pela quantidade de linhas):
+   1. Titulo unico ........... h2.section-title
+   2. Tese + desdobramento ... h2.section-title + p.section-claim (55-65% do titulo)
+   3. Proposicoes equivalentes  linhas <span class="line"> no mesmo elemento
+   4. Titulo + lead .......... h2.section-title + p.section-lead
+   O .overline existente cumpre o papel do eyebrow do sistema.
+   Definido no fim do arquivo de proposito: quando aplicado, vence os
+   estilos de titulo por secao (mesma especificidade, ordem posterior). */
+h2.section-title{
+  margin:0;max-width:900px;
+  font-family:var(--font-display);font-style:italic;font-weight:400;
+  font-size:clamp(40px, 5.2vw, 76px);line-height:1.04;letter-spacing:-0.022em;
+  color:var(--off-white);text-wrap:pretty;
+}
+h2.section-title .line{display:block;}
+p.section-claim{
+  margin:clamp(24px, 3vh, 40px) 0 0;max-width:760px;
+  font-family:var(--font-display);font-style:italic;font-weight:500;
+  font-size:clamp(25px, 3.1vw, 44px);line-height:1.1;letter-spacing:-0.018em;
+  color:var(--areia);text-wrap:pretty;
+}
+p.section-lead{
+  margin:clamp(28px, 4vh, 48px) 0 0;max-width:640px;
+  font-family:var(--font-body);font-weight:400;
+  font-size:clamp(17px, 1.4vw, 21px);line-height:1.6;
+  color:var(--azul-cinza);
+}
+.block.light h2.section-title{color:var(--noite);}
+.block.light p.section-claim{color:var(--terracota-escuro);}
+.block.light p.section-lead{color:var(--texto-light-2);}
+
+/* Quebras controladas em titulos de secao existentes */
+.zumbi-head h2 .line,
+.edicoes-v2-lede h2 .line{display:block;}
+.zumbi-head h2{text-wrap:pretty;}
