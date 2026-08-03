@@ -210,6 +210,13 @@ a{color:inherit;text-decoration:none;}
   .topbar-countdown .cd-unit.cd-seg{display:none;}
   .topbar-countdown .sep.sep-seg{display:none;}
 }
+/* Faixa horizontal apertada: sem minutos e CTA compacto, senão o botão estoura */
+@media (min-width:901px) and (max-width:1080px){
+  .topbar-countdown .cd-unit.cd-min{display:none;}
+  .topbar-countdown .sep.sep-min{display:none;}
+  .topbar-cta{font-size:11px;padding:10px 14px;}
+  .topbar-bar-inner{gap:16px;}
+}
 @media (max-width:900px){
   :root{--topbar-h-nav:42px;--topbar-h-bar:78px;--topbar-h:120px;}
   .topbar-nav{padding:0 var(--container-padding-mobile);justify-content:space-between;}
@@ -359,6 +366,10 @@ a{color:inherit;text-decoration:none;}
 .hero-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
 .hero-eyebrow{
   margin:0 0 18px;
+  align-self:flex-start;
+  padding:7px 12px;
+  background:rgba(11,18,32,0.55);
+  border-radius:2px;
   font-family:var(--font-mono);
   font-size:11.5px;font-weight:600;line-height:1.5;
   letter-spacing:0.18em;text-transform:uppercase;
@@ -367,6 +378,9 @@ a{color:inherit;text-decoration:none;}
 }
 @media (max-width:600px){
   .hero-eyebrow{font-size:10px;letter-spacing:0.14em;margin-bottom:14px;}
+}
+@media (max-width:380px){
+  .hero-eyebrow{font-size:9.5px;letter-spacing:0.11em;}
 }
 .hero-audience{
   margin:18px 0 0;
