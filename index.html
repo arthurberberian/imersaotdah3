@@ -50,6 +50,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '592122230538546');
 fbq('init', '244037803216657');
+fbq('init', '291239280287750');
 fbq('track', 'PageView');
 fbq('track', 'ViewContent', {
   content_name: 'Imersão TDAH na Era Digital 2026',
@@ -63,6 +64,9 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
 /></noscript>
   <noscript><img height="1" width="1" style="display:none"
               src="https://www.facebook.com/tr?id=244037803216657&ev=PageView&noscript=1"
+              /></noscript>
+  <noscript><img height="1" width="1" style="display:none"
+              src="https://www.facebook.com/tr?id=291239280287750&ev=PageView&noscript=1"
               /></noscript>
 <!-- End Facebook Pixel Code -->
 
@@ -1369,9 +1373,15 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
         console.error('Erro ao aplicar UTMs:', err);
       }
     }
-    // Dispara InitiateCheckout ao sair para o checkout
+    // Dispara AddToCart + InitiateCheckout ao sair para o checkout
     link.addEventListener('click', function () {
       if (typeof fbq === 'function') {
+        fbq('track', 'AddToCart', {
+          content_name: 'Imersão TDAH na Era Digital 2026',
+          content_type: 'product',
+          value: 797,
+          currency: 'BRL'
+        });
         fbq('track', 'InitiateCheckout', {
           content_name: 'Imersão TDAH na Era Digital 2026',
           content_type: 'product',
