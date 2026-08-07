@@ -683,10 +683,13 @@ a{color:inherit;text-decoration:none;}
   text-transform:uppercase;color:var(--azul-cinza-3);
 }
 
-@media (max-width:900px){
-  .exp-grid{grid-template-columns:1fr;}
-  .exp-card.span-7,.exp-card.span-5,.exp-card.span-6,.exp-card.span-12{grid-column:span 1;}
-}
+/* CTA ao pe da secao. Era um style inline no HTML; virou classe para o ramo
+   mobile poder redeclarar sem !important. */
+.exp-cta{display:flex;justify-content:center;margin-top:48px;}
+
+/* Mobile (<=900px) da secao #experiencia: ver "FASE 8 · EXPERIENCIA MOBILE",
+   no <style> do index.html. Uma fonte so para o ramo mobile — nao adicionar
+   regras de .exp-grid / .exp-card aqui. */
 
 /* =================== QUEM ESTÁ NA SALA =================== */
 #sala{background:var(--noite);color:var(--off-white);}
