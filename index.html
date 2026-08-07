@@ -71,94 +71,112 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
 <!-- End Facebook Pixel Code -->
 
 <style>
-/* ============ HERO V4 — fundo bundle + tipografia V3, CTA à direita ============ */
+/* ==========================================================
+   HERO V4 — RAMO DESKTOP (≥901px)
+   Fundo bundle + tipografia V3, CTA à direita.
 
-/* Mosaico: 3 colunas lado-a-lado em uma única linha (como no bundle) */
-#hero .hero-mosaic{
-  grid-template-columns:1.5fr 1fr 1fr !important;
-  grid-template-rows:1fr !important;
-  gap:2px;
-}
-#hero .hero-mosaic .ph{
-  grid-column:auto !important;
-  grid-row:auto !important;
-  -webkit-mask-image:none !important;
-  mask-image:none !important;
-}
-#hero .hero-mosaic .ph img{
-  filter:brightness(1.05) saturate(1.08) !important;  /* mantém cor viva do bundle */
-}
-/* Desativa as máscaras radiais que estavam apagando as imagens centrais */
-#hero .hero-mosaic .ph::before,
-#hero .hero-mosaic .ph::after{
-  background:
-    linear-gradient(to right, var(--noite) 0%, transparent 22%),
-    linear-gradient(to left,  var(--noite) 0%, transparent 22%),
-    linear-gradient(to bottom,var(--noite) 0%, transparent 18%),
-    linear-gradient(to top,   var(--noite) 0%, transparent 22%) !important;
-  opacity:1 !important;
-  mix-blend-mode:normal !important;
-}
-#hero .hero-mosaic .ph::after{ display:none !important; }
+   O bloco inteiro vive dentro de min-width:901px de propósito.
+   O hero tem dois ramos paralelos e independentes:
 
-/* Reenquadra cada cela para mostrar as cabeças/rostos */
-#hero .hero-mosaic .ph:nth-child(1) img{ object-position:50% 30% !important; }
-#hero .hero-mosaic .ph:nth-child(2) img{ object-position:50% 22% !important; }
-#hero .hero-mosaic .ph:nth-child(3) img{ object-position:55% 28% !important; }
+     styles.css (base)  →  V4 desktop   (≥901px)
+     styles.css (base)  →  V5 mobile    (≤900px, autocontido)
 
-/* Reduz o fade-out escuro que estava cobrindo texto + CTA no rodapé do hero */
-#hero .hero-overlay{
-  background:linear-gradient(180deg,
-    rgba(11,18,32,0.25) 0%,
-    rgba(11,18,32,0.30) 38%,
-    rgba(11,18,32,0.45) 70%,
-    rgba(11,18,32,0.55) 100%) !important;
-}
-#hero .hero-vignette{
-  background:radial-gradient(ellipse 60% 40% at 25% 80%, rgba(11,18,32,0.45) 0%, transparent 75%) !important;
-}
+   Nenhuma regra daqui alcança o mobile, então o V5 não precisa
+   disputar especificidade com nada deste bloco.
+   ========================================================== */
 
-/* === Tipografia V3 dentro do hero V4 === */
-#hero .hero-content{
-  justify-content:flex-end !important;
-  padding-bottom:128px !important;   /* sobe o bloco do rodapé do hero */
+@media (min-width:901px){
+
+  /* Mosaico: 3 colunas lado-a-lado em uma única linha (como no bundle) */
+  #hero .hero-mosaic{
+    grid-template-columns:1.5fr 1fr 1fr !important;
+    grid-template-rows:1fr !important;
+    gap:2px;
+  }
+  #hero .hero-mosaic .ph{
+    grid-column:auto !important;
+    grid-row:auto !important;
+    -webkit-mask-image:none !important;
+    mask-image:none !important;
+  }
+  #hero .hero-mosaic .ph img{
+    filter:brightness(1.05) saturate(1.08) !important;  /* mantém cor viva do bundle */
+  }
+  /* Desativa as máscaras radiais que estavam apagando as imagens centrais */
+  #hero .hero-mosaic .ph::before,
+  #hero .hero-mosaic .ph::after{
+    background:
+      linear-gradient(to right, var(--noite) 0%, transparent 22%),
+      linear-gradient(to left,  var(--noite) 0%, transparent 22%),
+      linear-gradient(to bottom,var(--noite) 0%, transparent 18%),
+      linear-gradient(to top,   var(--noite) 0%, transparent 22%) !important;
+    opacity:1 !important;
+    mix-blend-mode:normal !important;
+  }
+  #hero .hero-mosaic .ph::after{ display:none !important; }
+
+  /* Reenquadra cada cela para mostrar as cabeças/rostos */
+  #hero .hero-mosaic .ph:nth-child(1) img{ object-position:50% 30% !important; }
+  #hero .hero-mosaic .ph:nth-child(2) img{ object-position:50% 22% !important; }
+  #hero .hero-mosaic .ph:nth-child(3) img{ object-position:55% 28% !important; }
+
+  /* Reduz o fade-out escuro que estava cobrindo texto + CTA no rodapé do hero */
+  #hero .hero-overlay{
+    background:linear-gradient(180deg,
+      rgba(11,18,32,0.25) 0%,
+      rgba(11,18,32,0.30) 38%,
+      rgba(11,18,32,0.45) 70%,
+      rgba(11,18,32,0.55) 100%) !important;
+  }
+  #hero .hero-vignette{
+    background:radial-gradient(ellipse 60% 40% at 25% 80%, rgba(11,18,32,0.45) 0%, transparent 75%) !important;
+  }
+
+  /* === Tipografia V3 dentro do hero V4 === */
+  #hero .hero-content{
+    justify-content:flex-end !important;
+    padding-bottom:128px !important;   /* sobe o bloco do rodapé do hero */
+  }
+  #hero .hero-meta{
+    margin-top:32px !important;        /* aproxima a linha de meta + CTA do bloco de texto */
+  }
+  /* .hero-meta-text é <p>: zera a margem padrão do UA para o desktop
+     permanecer idêntico ao que era quando o elemento ainda era <div>. */
+  #hero .hero-meta-text{ margin:0; }
+  .hero-display-lockup{
+    margin:0 0 22px;color:var(--off-white);
+    display:flex;flex-direction:column;gap:0;
+  }
+  .hero-display-tdah{
+    display:block;font-family:var(--font-body);font-weight:800;
+    font-size:clamp(46px, 12vw, 168px);line-height:0.82;
+    letter-spacing:-0.065em;text-transform:uppercase;
+    text-shadow:0 4px 32px rgba(11,18,32,0.7);
+    margin-bottom:-0.04em;
+  }
+  .hero-display-era{
+    display:block;font-family:var(--font-display);
+    font-style:italic;font-weight:500;
+    font-size:clamp(42px, 7vw, 92px);line-height:0.95;
+    letter-spacing:-0.04em;color:var(--areia);
+    text-shadow:0 2px 24px rgba(11,18,32,0.7);
+    margin-top:6px;
+  }
+  .hero-v4-subtitle{
+    margin:28px 0 0;max-width:760px;
+    font-family:var(--font-display);font-style:italic;font-weight:400;
+    font-size:clamp(22px, 2.6vw, 34px);line-height:1.18;
+    letter-spacing:-0.022em;color:var(--off-white);
+    text-shadow:0 1px 16px rgba(11,18,32,0.6);
+  }
+  .hero-v4-support{
+    margin:18px 0 0;max-width:680px;padding-left:18px;
+    border-left:2px solid var(--terracota);
+    font-size:clamp(15px, 1.25vw, 18px);line-height:1.55;color:var(--azul-cinza);
+  }
+  /* Variante A — alterna frases entre desktop e mobile (mobile = versão enxuta) */
+  .hero-only-mobile{ display:none; }
 }
-#hero .hero-meta{
-  margin-top:32px !important;        /* aproxima a linha de meta + CTA do bloco de texto */
-}
-.hero-display-lockup{
-  margin:0 0 22px;color:var(--off-white);
-  display:flex;flex-direction:column;gap:0;
-}
-.hero-display-tdah{
-  display:block;font-family:var(--font-body);font-weight:800;
-  font-size:clamp(46px, 12vw, 168px);line-height:0.82;
-  letter-spacing:-0.065em;text-transform:uppercase;
-  text-shadow:0 4px 32px rgba(11,18,32,0.7);
-  margin-bottom:-0.04em;
-}
-.hero-display-era{
-  display:block;font-family:var(--font-display);
-  font-style:italic;font-weight:500;
-  font-size:clamp(42px, 7vw, 92px);line-height:0.95;
-  letter-spacing:-0.04em;color:var(--areia);
-  text-shadow:0 2px 24px rgba(11,18,32,0.7);
-  margin-top:6px;
-}
-.hero-v4-subtitle{
-  margin:28px 0 0;max-width:760px;
-  font-family:var(--font-display);font-style:italic;font-weight:400;
-  font-size:clamp(22px, 2.6vw, 34px);line-height:1.18;
-  letter-spacing:-0.022em;color:var(--off-white);
-  text-shadow:0 1px 16px rgba(11,18,32,0.6);
-}
-.hero-v4-support{
-  margin:18px 0 0;max-width:680px;padding-left:18px;
-  border-left:2px solid var(--terracota);
-  font-size:clamp(15px, 1.25vw, 18px);line-height:1.55;color:var(--azul-cinza);
-}
-/* Variante A — alterna frases entre desktop e mobile (mobile = versão enxuta) */
-.hero-only-mobile{ display:none; }
 
 /* ============ MANIFESTO V2 — pausa editorial após a Hero ============ */
 #manifesto{
@@ -238,25 +256,200 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   text-wrap:pretty;
 }
 
+/* ==========================================================
+   FASE 5 · MANIFESTO MOBILE
+   Menos densidade, mais cadência editorial
+   ========================================================== */
+
 @media (max-width:900px){
+
   #manifesto{
-    padding:clamp(72px, 10vh, 112px) var(--container-padding-mobile) !important;
+    padding:
+      78px
+      var(--container-padding-mobile)
+      88px !important;
+
+    text-align:left !important;
   }
+
+
+  /* ---------- Container ---------- */
+
+  .manifesto-v2{
+    width:100%;
+  }
+
+  .manifesto-v2 .overline{
+    display:block;
+
+    margin:0 0 34px !important;
+
+    font-size:9.5px;
+    line-height:1.2;
+
+    letter-spacing:.16em;
+  }
+
+
+  /* ---------- Grid vira narrativa ---------- */
+
   .manifesto-v2 .manifesto-grid{
-    grid-template-columns:1fr;
-    gap:clamp(48px, 8vh, 72px);
+    display:grid;
+    grid-template-columns:1fr !important;
+
+    gap:0 !important;
   }
+
+
+  /* ---------- Tese principal ---------- */
+
+  .manifesto-v2 .manifesto-title{
+    max-width:10ch;
+
+    margin:0 !important;
+
+    font-size:clamp(42px,11.5vw,58px) !important;
+    line-height:1.02 !important;
+
+    letter-spacing:-.035em !important;
+
+    text-wrap:balance;
+  }
+
+
+  .manifesto-v2 .manifesto-claim{
+    max-width:12ch;
+
+    margin:20px 0 0 !important;
+
+    font-size:clamp(26px,7.5vw,36px) !important;
+    line-height:1.08 !important;
+
+    letter-spacing:-.025em !important;
+
+    color:var(--areia);
+  }
+
+
+  /* ---------- Regra editorial ---------- */
+
+  .manifesto-v2 .manifesto-rule{
+    width:42px;
+    height:2px;
+
+    margin:
+      36px
+      0
+      30px !important;
+
+    background:var(--terracota);
+  }
+
+
+  /* ---------- Corpo ---------- */
+
+  .manifesto-v2 .manifesto-body{
+    max-width:32ch;
+
+    margin:0 !important;
+
+    font-size:16px !important;
+    line-height:1.65 !important;
+
+    color:var(--azul-cinza);
+  }
+
+
+  /* ---------- Fechamento ---------- */
+
+  .manifesto-v2 .manifesto-close{
+    max-width:31ch;
+
+    margin:30px 0 0 !important;
+
+    font-size:17px !important;
+    line-height:1.55 !important;
+
+    color:var(--areia);
+  }
+
+  .manifesto-v2 .manifesto-close .line{
+    display:block;
+  }
+
+  .manifesto-v2 .manifesto-close .line + .line{
+    margin-top:3px;
+  }
+
+
+  /* ---------- Nota de pesquisa ---------- */
+
   .manifesto-v2 .manifesto-card{
-    position:static;
-    background:transparent;
-    border:none;
-    border-top:1px solid rgba(224,199,163,0.15);
-    padding:clamp(40px, 6vh, 56px) 0 0;
-    gap:clamp(32px, 5vh, 48px);
+    position:static !important;
+
+    margin-top:52px;
+
+    padding:
+      36px
+      0
+      0 !important;
+
+    background:transparent !important;
+
+    border:0 !important;
+    border-top:
+      1px solid rgba(224,199,163,.14) !important;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:0 !important;
   }
+
+
+  .manifesto-v2 .mf-item{
+    display:block;
+
+    padding:0 !important;
+  }
+
+
   .manifesto-v2 .mf-item + .mf-item{
-    border-top:none;padding-top:0;
+    margin-top:30px;
+
+    padding-top:0 !important;
+
+    border:0 !important;
   }
+
+
+  .manifesto-v2 .mf-label{
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:9px !important;
+    line-height:1.2;
+
+    letter-spacing:.16em;
+
+    color:var(--terracota-claro);
+  }
+
+
+  .manifesto-v2 .mf-text{
+    max-width:30ch;
+
+    margin:0 !important;
+
+    font-size:18px !important;
+    line-height:1.4 !important;
+
+    letter-spacing:-.012em !important;
+
+    color:rgba(255,255,255,.88);
+  }
+
 }
 
 /* ============ EDIÇÕES ANTERIORES V2 — arquivo vivo ============ */
@@ -423,183 +616,193 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   .edicao-play{width:46px;height:46px;left:16px;bottom:16px;}
 }
 
-/* ============ MOBILE OVERRIDE — hero redesenhado ============
-   Estratégia: UMA foto forte full-bleed (Bruna no palco) em vez do mosaico
-   de 3 imagens, gradiente pesado no rodapé pra legibilidade, tipografia
-   recalibrada pra caber no viewport, CTA empilhado full-width.            */
+/* ==========================================================
+   TOPBAR MOBILE — faixa única de 72px
+   Entra depois do bloco mobile da topbar do styles.css (≤900px).
+
+   Mesmo contrato do HERO MOBILE V5: a geometria é declarada aqui de
+   forma explícita. As linhas marcadas "neutraliza" não são redundância —
+   o bloco ≤900px do styles.css monta a topbar em COLUNA (duas faixas
+   empilhadas, 120px) e este bloco a remonta em LINHA (uma faixa, 72px).
+   Sem redeclarar essas propriedades, a versão antiga vence por omissão.
+   ========================================================== */
+
 @media (max-width:900px){
-  /* ---- Foto: colapsa pra 1 imagem só (a 3ª = Bruna), full-bleed ---- */
-  #hero .hero-mosaic{
-    grid-template-columns:1fr !important;
-    grid-template-rows:1fr !important;
-    gap:0 !important;
-  }
-  #hero .hero-mosaic .ph:nth-child(1),
-  #hero .hero-mosaic .ph:nth-child(2){display:none !important;}
-  #hero .hero-mosaic .ph:nth-child(3){
-    grid-column:1 !important; grid-row:1 !important;
-  }
-  #hero .hero-mosaic .ph:nth-child(3) img{
-    object-position:72% 22% !important;
-    filter:brightness(0.88) saturate(1.05) contrast(1.02) !important;
-  }
-  /* Remove fades laterais da imagem única */
-  #hero .hero-mosaic .ph::before,
-  #hero .hero-mosaic .ph::after{
-    background:linear-gradient(to top, var(--noite) 0%, transparent 14%) !important;
+
+  :root{
+    --topbar-h:72px;
+    --topbar-h-nav:72px;
+    --topbar-h-bar:72px;         /* neutraliza o 78px do bloco antigo */
   }
 
-  /* ---- Overlay muito mais forte pra sustentar a tipografia ---- */
-  #hero .hero-overlay{
-    background:linear-gradient(180deg,
-      rgba(11,18,32,0.55) 0%,
-      rgba(11,18,32,0.38) 26%,
-      rgba(11,18,32,0.55) 52%,
-      rgba(11,18,32,0.86) 74%,
-      rgba(11,18,32,0.96) 92%,
-      var(--noite) 100%) !important;
-  }
-  #hero .hero-vignette{
-    background:
-      radial-gradient(ellipse 110% 55% at 30% 88%, rgba(11,18,32,0.7) 0%, transparent 78%),
-      radial-gradient(ellipse 90% 35% at 50% 12%, rgba(11,18,32,0.5) 0%, transparent 80%) !important;
+  .topbar{
+    height:72px;
+    background:rgba(11,18,32,.88);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.06);
   }
 
-  /* ---- Conteúdo com padding lateral correto e altura controlada ---- */
-  #hero{ min-height:auto !important; }
-  #hero .hero-content{
-    padding:0 var(--container-padding-mobile) 36px !important;
-    min-height:calc(100svh - var(--topbar-h) - 12px) !important;
-    height:auto !important;
-    justify-content:flex-end !important;
-    gap:0 !important;
+  /* ---- Coluna do hambúrguer, sobreposta à esquerda ---- */
+
+  .topbar-nav{
+    position:absolute;
+    inset:0 auto 0 0;
+    width:64px;
+    height:72px;
+    z-index:80;
+
+    padding:0;                   /* neutraliza o padding lateral de 24px */
+    border-bottom:0;             /* neutraliza a régua da antiga linha 1 */
   }
 
-  /* ---- Tipografia recalibrada pra caber sem sangrar ---- */
-  .hero-display-lockup{ margin:0 0 4px !important; }
-  .hero-display-tdah{
-    font-size:clamp(76px, 24vw, 120px) !important;
-    line-height:0.86 !important;
-    letter-spacing:-0.055em !important;
-    margin-bottom:-0.02em !important;
-  }
-  .hero-display-era{
-    font-size:clamp(34px, 10.5vw, 54px) !important;
-    line-height:0.98 !important;
-    letter-spacing:-0.025em !important;
-    margin-top:10px !important;
-  }
-  .hero-v4-subtitle{
-    margin:22px 0 0 !important;
-    font-size:17px !important;
-    line-height:1.32 !important;
-    letter-spacing:-0.015em !important;
-    max-width:none !important;
-  }
-  /* Variante A — versão enxuta: troca para as frases curtas de mobile */
-  .hero-only-desktop{ display:none !important; }
-  .hero-only-mobile{ display:block !important; }
+  .topbar-nav .nav-inner{
+    height:72px;
+    padding:0 0 0 var(--container-padding-mobile);
+    display:flex;
+    align-items:center;
 
-  /* ---- Bloco meta (data + CTA) empilhado e full-width ---- */
-  #hero .hero-meta{
-    margin-top:28px !important;
-    flex-direction:column !important;
-    align-items:stretch !important;
-    gap:18px !important;
-  }
-  .hero-meta-text{
-    font-size:12px !important;
-    letter-spacing:0.1em !important;
-    line-height:1.55 !important;
-    white-space:normal !important;
-  }
-  .hero-actions{
-    flex-direction:column !important;
-    align-items:stretch !important;
-    gap:14px !important;
-    width:100% !important;
-  }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-large{
-    width:100% !important;
-    justify-content:center !important;
-    padding:18px 22px !important;
-    font-size:15px !important;
-    letter-spacing:0.02em !important;
-  }
-  .hero-actions .btn-ghost{
-    align-self:flex-start !important;
-    padding:6px 0 !important;
-    font-size:13px !important;
+    justify-content:flex-start;  /* neutraliza o flex-end da base */
+    max-width:none;              /* neutraliza o container de 1200px */
+    margin:0;
   }
 
-  /* === HAMBURGER DRAWER === */
+  .topbar-menu-btn{
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:0;
+    padding:0;
+    background:transparent;
+    color:var(--off-white);
+    font-size:24px;
+    line-height:1;
+  }
+
+  /* ---- Faixa: marca à esquerda, CTA à direita, tudo centrado ---- */
+
+  .topbar-bar{
+    height:72px;
+
+    padding:0;                   /* neutraliza; o padding vive no -inner */
+    flex-direction:row;          /* neutraliza a coluna do bloco antigo */
+    gap:0;
+    /* o gradiente opaco da base cobriria o blur da .topbar */
+    background:transparent;
+    border-top:0;
+    border-bottom:0;
+  }
+
+  .topbar-bar-inner{
+    height:72px;
+    padding:0 var(--container-padding-mobile) 0 72px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    flex-direction:row;          /* neutraliza a coluna do bloco antigo */
+    max-width:none;
+    margin:0;
+  }
+
+  .topbar-brand{
+    min-width:0;
+    flex:1;
+    width:auto;                  /* neutraliza o width:100% do bloco antigo */
+  }
+
+  .topbar-brand .logo-m{
+    width:30px;
+    height:auto;
+  }
+
+  /*
+    No mobile a marca é só o símbolo.
+
+    O CTA da topbar ocupa 204px fixos (white-space:nowrap). Com o texto
+    presente sobravam 19px em 375px e 4px em 360px para uma linha que
+    precisa de 120px — virava reticências. E "TDAH na Era Digital" já
+    aparece em corpo grande no <h1> do hero, logo abaixo.
+
+    Seletor com .topbar-brand porque a base usa .topbar-brand .brand-text,
+    que venceria .brand-text sozinho por especificidade.
+  */
+
+  .topbar-brand .brand-text{
+    display:none;
+  }
+
+  .topbar-spacer,
+  .topbar-countdown{
+    display:none !important;
+  }
+
+  .topbar-right{
+    flex:0 0 auto;
+    position:static;             /* neutraliza o position:absolute antigo */
+  }
+
+  .topbar-cta{
+    padding:10px 12px;
+    font-size:11px;
+    line-height:1;
+    letter-spacing:.02em;
+    white-space:nowrap;
+  }
+
+}
+
+/* ==========================================================
+   DRAWER DO HAMBÚRGUER (mobile) — bloco separado de propósito
+   Só existe com .menu-open. Fechado, o topo não disputa atenção
+   com o hero. Como a .topbar-nav agora tem 64px de largura, o
+   drawer precisa de width:100vw para escapar dela.
+   ========================================================== */
+
+@media (max-width:900px){
+
+  .topbar.menu-open .topbar-nav .nav-inner{
+    position:absolute;
+    top:72px;
+    left:0;
+    right:auto;
+    width:100vw;
+    height:auto;
+    z-index:80;
+
+    padding:8px var(--container-padding-mobile);
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:0;
+
+    background:var(--noite-2);
+    border-top:1px solid rgba(255,255,255,.06);
+    border-bottom:1px solid rgba(255,255,255,.06);
+  }
+
   .topbar.menu-open .topbar-nav a:not(.nav-cta){
     display:flex !important;
-  }
-  .topbar.menu-open .topbar-nav .nav-inner{
-    position:absolute;top:var(--topbar-h-nav);left:0;right:0;
-    flex-direction:column;align-items:stretch;
-    background:var(--noite-2);
-    border-top:1px solid rgba(255,255,255,0.06);
-    border-bottom:1px solid rgba(255,255,255,0.06);
-    padding:8px var(--container-padding-mobile);
-    gap:0;
-    z-index:60;
-  }
-  .topbar.menu-open .topbar-nav .nav-inner a{
     padding:14px 0;
     border-bottom:1px solid rgba(255,255,255,0.04);
-    font-size:14px;letter-spacing:0.04em;
+    font-size:14px;
+    letter-spacing:0.04em;
     color:var(--off-white);
   }
-  .topbar.menu-open .topbar-nav .nav-inner a:last-child{border-bottom:none;}
+
+  .topbar.menu-open .topbar-nav .nav-inner a:last-child{
+    border-bottom:none;
+  }
+
   .topbar.menu-open .topbar-nav .nav-inner .topbar-menu-btn{
     align-self:flex-end;
   }
-  .topbar.menu-open .topbar-menu-btn::before{content:'\00d7';}
-  .topbar.menu-open .topbar-menu-btn{font-size:0;}
-  .topbar.menu-open .topbar-menu-btn::before{font-size:24px;}
-}
 
-/* ============ RESPONSIVO · celular pequeno (≤600px) ============ */
-@media (max-width:600px){
-  .hero-display-tdah{
-    font-size:clamp(64px, 21vw, 92px) !important;
-  }
-  .hero-display-era{
-    font-size:clamp(30px, 9.5vw, 43px) !important;
-  }
-  .hero-v4-subtitle{
-    margin-top:18px !important;
-    font-size:16px !important;
-    line-height:1.35 !important;
-  }
-  #hero .hero-meta{
-    margin-top:22px !important;
-  }
-}
-
-/* ============ RESPONSIVO · tablet retrato (601–900px) ============ */
-@media (min-width:601px) and (max-width:900px){
-  #hero .hero-content{
-    padding-left:48px !important;
-    padding-right:48px !important;
-    padding-bottom:54px !important;
-  }
-  .hero-display-tdah{
-    font-size:clamp(94px, 17vw, 124px) !important;
-  }
-  .hero-display-era{
-    font-size:clamp(46px, 7.5vw, 62px) !important;
-  }
-  .hero-v4-subtitle{
-    max-width:620px !important;
-    font-size:21px !important;
-  }
-  .hero-actions{
-    max-width:480px;
-  }
+  /* ≡ vira × enquanto o drawer está aberto */
+  .topbar.menu-open .topbar-menu-btn{ font-size:0; }
+  .topbar.menu-open .topbar-menu-btn::before{ content:'\00d7'; font-size:24px; }
 }
 
 /* ============ RESPONSIVO · tablet paisagem / notebook pequeno (901–1180px) ============ */
@@ -667,6 +870,1027 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
 .edicao-video .yt-facade:hover .yt-play{
   background:var(--terracota);
   transform:scale(1.08);
+}
+
+/* ==========================================================
+   HERO V5 · MOBILE (≤900px) — RAMO MOBILE AUTOCONTIDO
+   Primeira dobra reduzida a quatro níveis:
+   contexto → título → promessa → data + CTA.
+   Desktop permanece intacto (o ramo V4 vive em min-width:901px).
+
+   CONTRATO DESTE BLOCO
+   Toda propriedade que define a geometria do hero — position, inset,
+   padding, margin, min-height/height, z-index, object-position, os
+   overlays e os espaçamentos principais — é declarada aqui de forma
+   explícita, mesmo quando o valor coincide com o de styles.css.
+   O hero mobile não herda geometria de lugar nenhum, e por isso
+   dispensa !important.
+
+   A .topbar é position:fixed — não ocupa altura no fluxo. Logo o hero
+   NÃO reserva padding-top para ela: ocupa 100svh cheios e o respiro do
+   topo vem do padding-top do .hero-content.
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+  /* ----------------------------------------------------------
+     Estrutura
+     ---------------------------------------------------------- */
+
+  #hero {
+    position: relative;
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 100svh;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+    background: var(--noite);
+  }
+
+  #hero .hero-content {
+    position: relative;
+    z-index: 5;
+
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+
+    min-height: 100svh;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    gap: 0;
+
+    /* max() preserva os 38px como piso e ainda respeita o
+       indicador de home dos aparelhos com notch. */
+    padding:
+      120px
+      var(--container-padding-mobile)
+      max(38px, env(safe-area-inset-bottom));
+  }
+
+  /* ----------------------------------------------------------
+     Imagem
+     Somente a fotografia da Bruna aparece no mobile
+     ---------------------------------------------------------- */
+
+  #hero .hero-mosaic {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    z-index: -3;
+    background: var(--noite);
+  }
+
+  /*
+    styles.css pinta um edge-fade nas 4 bordas via .hero-mosaic::before.
+    Desligado de propósito: no V5 quem escurece é só o par
+    overlay + vignette. Uma superfície, previsível.
+  */
+  #hero .hero-mosaic::before,
+  #hero .hero-mosaic::after {
+    display: none;
+    content: none;
+  }
+
+  #hero .hero-mosaic .ph {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    background: var(--noite);
+
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  #hero .hero-mosaic .ph::before,
+  #hero .hero-mosaic .ph::after {
+    display: none;
+    content: none;
+  }
+
+  #hero .hero-photo-stage,
+  #hero .hero-photo-question {
+    display: none;
+  }
+
+  #hero .hero-photo-mobile {
+    display: block;
+  }
+
+  #hero .hero-photo-mobile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    /*
+      Crop editorial:
+      - rosto deslocado para o lado direito;
+      - espaço negativo à esquerda;
+      - menos palco e menos elementos concorrentes.
+    */
+    object-position: 68% 17%;
+
+    filter:
+      brightness(.82)
+      saturate(.92)
+      contrast(1.04);
+
+    transform: scale(1.01);
+  }
+
+  /* ----------------------------------------------------------
+     Overlays
+     ---------------------------------------------------------- */
+
+  #hero .hero-overlay,
+  #hero .hero-vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 1;
+  }
+
+  #hero .hero-overlay {
+    z-index: -2;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(11, 18, 32, .26) 0%,
+        rgba(11, 18, 32, .12) 24%,
+        rgba(11, 18, 32, .18) 42%,
+        rgba(11, 18, 32, .54) 61%,
+        rgba(11, 18, 32, .88) 78%,
+        rgba(11, 18, 32, .98) 94%,
+        var(--noite) 100%
+      );
+  }
+
+  #hero .hero-vignette {
+    z-index: -1;
+
+    background:
+      linear-gradient(
+        90deg,
+        rgba(11, 18, 32, .28) 0%,
+        transparent 56%
+      );
+  }
+
+  /* ----------------------------------------------------------
+     Eyebrow
+     Pequeno, terracota, sem plaqueta: diz que é a 3ª edição
+     sem competir com o título.
+     ---------------------------------------------------------- */
+
+  #hero .hero-eyebrow {
+    display: block;
+    align-self: flex-start;
+
+    margin: 0 0 18px;
+    padding: 0;
+
+    background: none;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    color: var(--terracota-claro);
+    text-shadow: 0 1px 12px rgba(11, 18, 32, .65);
+  }
+
+  /* ----------------------------------------------------------
+     Título
+     ---------------------------------------------------------- */
+
+  #hero .hero-display-lockup {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+
+    color: var(--off-white);
+  }
+
+  #hero .hero-display-tdah {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--font-body);
+    font-size: clamp(68px, 21vw, 96px);
+    font-weight: 800;
+    line-height: .82;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+
+    color: var(--off-white);
+
+    text-shadow: 0 2px 22px rgba(11, 18, 32, .4);
+  }
+
+  #hero .hero-display-era {
+    display: block;
+
+    margin: 12px 0 0;
+    padding: 0;
+
+    font-family: var(--font-display);
+    font-size: clamp(34px, 10.2vw, 47px);
+    font-style: italic;
+    font-weight: 500;
+    line-height: .96;
+    letter-spacing: -.035em;
+
+    color: var(--areia);
+
+    text-shadow: 0 2px 18px rgba(11, 18, 32, .5);
+  }
+
+  /* ----------------------------------------------------------
+     Promessa
+     ---------------------------------------------------------- */
+
+  #hero .hero-v4-subtitle {
+    max-width: 34ch;
+
+    margin: 25px 0 0;
+    padding: 0;
+
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.38;
+    letter-spacing: -.015em;
+
+    color: rgba(255, 255, 255, .92);
+
+    text-wrap: pretty;
+  }
+
+  /* Público sai da primeira dobra; segue no HTML para o desktop. */
+
+  #hero .hero-audience {
+    display: none;
+  }
+
+  /* ----------------------------------------------------------
+     Data
+     ---------------------------------------------------------- */
+
+  #hero .hero-meta {
+    width: 100%;
+    max-width: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+
+    margin: 26px 0 0;
+    padding: 0;
+    gap: 20px;
+  }
+
+  #hero .hero-meta-text {
+    display: block;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: .105em;
+    text-transform: uppercase;
+    white-space: normal;
+
+    color: rgba(224, 199, 163, .82);
+  }
+
+  #hero .hero-meta-text span {
+    margin: 0 5px;
+    color: rgba(255, 255, 255, .28);
+  }
+
+  /* ----------------------------------------------------------
+     CTA
+     ---------------------------------------------------------- */
+
+  #hero .hero-actions {
+    width: 100%;
+    max-width: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+
+    margin: 0;
+    padding: 0;
+    gap: 13px;
+  }
+
+  #hero .hero-actions .btn-primary,
+  #hero .hero-actions .btn-large {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+    padding: 16px 20px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+    border-radius: 3px;
+
+    background:
+      linear-gradient(
+        135deg,
+        var(--terracota) 0%,
+        #a95329 100%
+      );
+
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .16);
+
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: .01em;
+    text-align: center;
+
+    color: var(--off-white);
+
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  #hero .hero-actions .btn-primary:active {
+    transform: translateY(1px);
+  }
+
+  /*
+    O CTA secundário permanece visível, mas rebaixado:
+    lê-se como navegação editorial, não como segunda oferta.
+  */
+
+  #hero .hero-actions .btn-ghost {
+    align-self: flex-start;
+
+    width: auto;
+    margin: 0;
+    padding: 3px 0 5px;
+
+    border: 0;
+    background: none;
+    box-shadow: none;
+
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 500;
+    line-height: 1.3;
+    letter-spacing: .02em;
+
+    color: rgba(255, 255, 255, .68);
+  }
+}
+
+/* ==========================================================
+   CELULARES COM VIEWPORT BAIXO
+   Comprime sem transformar o hero de volta numa parede de
+   informação. A lógica segue ancorada no viewport disponível —
+   sem recompensar a altura da topbar, que é fixed.
+   ========================================================== */
+
+@media (max-width: 900px) and (max-height: 760px) {
+
+  #hero {
+    min-height: 100svh;
+    padding-top: 0;
+  }
+
+  #hero .hero-content {
+    min-height: 100svh;
+
+    padding-top: 92px;
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+
+  #hero .hero-eyebrow {
+    margin-bottom: 12px;
+  }
+
+  #hero .hero-display-tdah {
+    font-size: clamp(58px, 18.5vw, 76px);
+  }
+
+  #hero .hero-display-era {
+    margin-top: 8px;
+    font-size: clamp(29px, 8.8vw, 38px);
+  }
+
+  #hero .hero-v4-subtitle {
+    margin-top: 18px;
+    font-size: 15px;
+    line-height: 1.32;
+  }
+
+  #hero .hero-meta {
+    margin-top: 18px;
+    gap: 14px;
+  }
+
+  #hero .hero-actions .btn-primary,
+  #hero .hero-actions .btn-large {
+    min-height: 50px;
+    padding: 14px 18px;
+  }
+}
+
+/* ==========================================================
+   CELULARES ESTREITOS
+   Só a caixa lateral. A tipografia é governada pelos clamps
+   do bloco base — os overrides antigos daqui foram derivados
+   da escala anterior e sobrescreviam a escala nova.
+   ========================================================== */
+
+@media (max-width: 390px) {
+
+  #hero .hero-content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ==========================================================
+   TABLET RETRATO
+   ========================================================== */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+  #hero .hero-photo-mobile img {
+    object-position: 70% 18%;
+  }
+
+  #hero .hero-content {
+    padding-left: 48px;
+    padding-right: 48px;
+    padding-bottom: 48px;
+  }
+
+  #hero .hero-display-tdah {
+    font-size: clamp(92px, 16vw, 122px);
+  }
+
+  #hero .hero-display-era {
+    font-size: clamp(47px, 7.8vw, 62px);
+  }
+
+  #hero .hero-v4-subtitle {
+    max-width: 590px;
+    font-size: 21px;
+  }
+
+  #hero .hero-actions {
+    max-width: 460px;
+  }
+}
+
+/* ==========================================================
+   ACESSIBILIDADE
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  #hero .hero-photo-mobile img,
+  #hero .hero-actions .btn-primary {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* ==========================================================
+   FASE 4 · FAIXA EDITORIAL MOBILE
+   O countdown sai da topbar e vira informação secundária,
+   logo abaixo do hero.
+
+   Quem esconde a .topbar-countdown no mobile é o bloco
+   "TOPBAR MOBILE — faixa única de 72px". Uma fonte só para
+   cada decisão: aquele bloco manda na topbar, este manda
+   na faixa.
+   ========================================================== */
+
+.mobile-event-strip{
+  display:none;
+}
+
+@media (max-width:900px){
+
+  .mobile-event-strip{
+    display:block;
+
+    position:relative;
+    z-index:5;
+
+    padding:
+      20px
+      var(--container-padding-mobile)
+      22px;
+
+    background:var(--noite);
+
+    border-top:1px solid rgba(224,199,163,.10);
+    border-bottom:1px solid rgba(224,199,163,.10);
+  }
+
+  .mobile-event-strip-inner{
+    max-width:560px;
+    margin:0 auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+  }
+
+  /* ---- lado esquerdo ---- */
+
+  .mobile-event-strip-copy{
+    min-width:0;
+    flex:1;
+  }
+
+  .mobile-event-strip-label{
+    display:block;
+
+    margin-bottom:5px;
+
+    font-family:var(--font-mono);
+    font-size:9px;
+    line-height:1.2;
+    font-weight:500;
+
+    letter-spacing:.14em;
+    text-transform:uppercase;
+
+    color:var(--terracota-claro);
+  }
+
+  .mobile-event-strip-copy p{
+    margin:0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:15px;
+    line-height:1.25;
+
+    letter-spacing:-.01em;
+
+    color:rgba(255,255,255,.78);
+  }
+
+  /* ---- lado direito ---- */
+
+  .mobile-event-strip-time{
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-end;
+
+    gap:7px;
+
+    flex:0 0 auto;
+  }
+
+  .mobile-cd-unit{
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:flex-end;
+  }
+
+  .mobile-cd-num{
+    display:block;
+
+    font-family:var(--font-body);
+    font-size:21px;
+    line-height:1;
+    font-weight:700;
+
+    letter-spacing:-.035em;
+    font-variant-numeric:tabular-nums;
+
+    color:var(--off-white);
+  }
+
+  .mobile-cd-label{
+    display:block;
+
+    margin-top:5px;
+
+    font-family:var(--font-mono);
+    font-size:7.5px;
+    line-height:1;
+
+    letter-spacing:.08em;
+    text-transform:uppercase;
+
+    color:rgba(174,183,199,.58);
+  }
+
+  .mobile-cd-sep{
+    margin-top:2px;
+
+    font-size:13px;
+    line-height:1;
+
+    color:rgba(224,199,163,.25);
+  }
+
+}
+
+/* ==========================================================
+   FASE 6 · TENSÃO CLÍNICA MOBILE
+   1 cena documental + 5 registros clínicos compactos
+
+   Ramo mobile autocontido. A folha base (assets/styles.css)
+   ainda alcança estes elementos em <=900px, então este bloco
+   redeclara toda a geometria em disputa:
+
+     .zumbi-img    é position:absolute / inset:0 na base
+     .zumbi-card   carrega aspect-ratio (3/4)
+     .zumbi-brief  carrega o gradiente de overlay
+     .zumbi-head   é text-align:center
+
+   Com o ramo completo, nenhuma regra aqui precisa de
+   !important. Desktop (>=901px) fica intacto.
+   ========================================================== */
+
+@media (max-width:900px){
+
+  /* --------------------------------------------------------
+     SEÇÃO
+     -------------------------------------------------------- */
+
+  #zumbis{
+    padding:
+      82px
+      var(--container-padding-mobile)
+      92px;
+  }
+
+  #zumbis .container{
+    position:relative;
+
+    width:100%;
+    max-width:100%;
+
+    margin:0;
+  }
+
+
+  /* --------------------------------------------------------
+     CABEÇALHO
+     -------------------------------------------------------- */
+
+  #zumbis .zumbi-head{
+    max-width:560px;
+    margin:0 0 44px;
+
+    text-align:left;
+  }
+
+  /* display:block desliga o inline-flex da .overline: o traço
+     do ::before sai de cena, como no manifesto mobile. */
+  #zumbis .zumbi-head .overline{
+    display:block;
+
+    margin:0 0 26px;
+
+    font-size:9.5px;
+    line-height:1.3;
+
+    letter-spacing:.15em;
+  }
+
+  #zumbis .zumbi-head h2{
+    margin:0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+
+    font-size:clamp(36px,9.8vw,48px);
+    line-height:1.04;
+
+    letter-spacing:-.032em;
+
+    color:var(--off-white);
+    text-wrap:pretty;
+  }
+
+  #zumbis .zumbi-head h2 .line{
+    display:block;
+  }
+
+  #zumbis .zumbi-head p{
+    max-width:33ch;
+
+    margin:24px 0 0;
+
+    font-size:15.5px;
+    line-height:1.65;
+
+    color:var(--azul-cinza);
+  }
+
+
+  /* --------------------------------------------------------
+     GRID → LISTA EDITORIAL
+     -------------------------------------------------------- */
+
+  #zumbis .zumbi-grid{
+    display:flex;
+    flex-direction:column;
+
+    gap:0;
+
+    margin:0;
+  }
+
+
+  /* --------------------------------------------------------
+     RESET DOS CARDS
+     -------------------------------------------------------- */
+
+  #zumbis .zumbi-card{
+    position:relative;
+
+    min-width:0;
+    margin:0;
+
+    /* base:3/4 — sem isto o card continua sendo uma caixa
+       de proporção fixa e engole a lista */
+    aspect-ratio:auto;
+
+    background:transparent;
+
+    border:0;
+    border-radius:0;
+
+    box-shadow:none;
+
+    overflow:visible;
+  }
+
+  /* tira a imagem do overlay absoluto e devolve ao fluxo */
+  #zumbis .zumbi-card .zumbi-img{
+    position:static;
+    inset:auto;
+
+    display:block;
+  }
+
+  /* tira o gradiente que existia para legibilidade sobre a foto */
+  #zumbis .zumbi-card .zumbi-brief{
+    position:static;
+    z-index:auto;
+
+    min-width:0;
+
+    padding:0;
+
+    background:none;
+  }
+
+
+  /* ========================================================
+     CENA 01
+     Imagem documental principal
+     ======================================================== */
+
+  #zumbis .zumbi-card:first-child{
+    display:block;
+
+    padding:0 0 36px;
+
+    border-bottom:1px solid rgba(224,199,163,.12);
+  }
+
+  #zumbis .zumbi-card:first-child .zumbi-img{
+    width:100%;
+    height:auto;
+
+    aspect-ratio:4 / 3;
+
+    margin:0 0 22px;
+
+    object-fit:cover;
+
+    border-radius:2px;
+
+    filter:
+      saturate(.82)
+      contrast(1.03)
+      brightness(.90);
+  }
+
+  #zumbis .zumbi-card:first-child .tag{
+    display:block;
+
+    margin:0 0 10px;
+
+    font-family:var(--font-mono);
+    font-size:9px;
+    line-height:1.2;
+
+    letter-spacing:.15em;
+    text-transform:uppercase;
+
+    color:var(--terracota-claro);
+  }
+
+  #zumbis .zumbi-card:first-child .scene{
+    max-width:29ch;
+
+    margin:0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+
+    font-size:21px;
+    line-height:1.35;
+
+    letter-spacing:-.018em;
+
+    color:var(--off-white);
+  }
+
+
+  /* ========================================================
+     CENAS 02–06
+     Registro compacto
+     ======================================================== */
+
+  #zumbis .zumbi-card:not(:first-child){
+    display:grid;
+
+    grid-template-columns:
+      clamp(84px,24vw,108px)
+      minmax(0,1fr);
+
+    gap:18px;
+
+    align-items:center;
+
+    padding:20px 0;
+
+    border-bottom:1px solid rgba(224,199,163,.10);
+  }
+
+
+  #zumbis .zumbi-card:not(:first-child) .zumbi-img{
+    width:100%;
+
+    /* auto, não 100%: com height:100% a cena 05 (texto mais
+       longo) esticava a miniatura e quebrava a coluna de crops */
+    height:auto;
+
+    min-height:104px;
+
+    aspect-ratio:4 / 5;
+
+    object-fit:cover;
+
+    border-radius:2px;
+
+    filter:
+      saturate(.72)
+      contrast(1.02)
+      brightness(.82);
+  }
+
+
+  #zumbis .zumbi-card:not(:first-child) .tag{
+    display:block;
+
+    margin:0 0 8px;
+
+    font-family:var(--font-mono);
+    font-size:8.5px;
+    line-height:1.3;
+
+    letter-spacing:.13em;
+    text-transform:uppercase;
+
+    color:var(--terracota-claro);
+  }
+
+
+  #zumbis .zumbi-card:not(:first-child) .scene{
+    margin:0;
+
+    font-family:var(--font-body);
+    font-style:normal;
+    font-weight:400;
+
+    font-size:14.5px;
+    line-height:1.5;
+
+    letter-spacing:-.005em;
+
+    color:rgba(255,255,255,.82);
+  }
+
+
+  /* último item não precisa fechar com linha */
+
+  #zumbis .zumbi-card:last-child{
+    border-bottom:0;
+    padding-bottom:0;
+  }
+
+
+  /* --------------------------------------------------------
+     PONTO DE AJUSTE · CROP POR CENA
+     Todos em center center. Ajustar olhando o aparelho —
+     object-position não se adivinha antes de ver o crop real.
+     -------------------------------------------------------- */
+
+  #zumbis .zumbi-card:nth-child(1) .zumbi-img{ object-position:center center; }
+  #zumbis .zumbi-card:nth-child(2) .zumbi-img{ object-position:center center; }
+  #zumbis .zumbi-card:nth-child(3) .zumbi-img{ object-position:center center; }
+  #zumbis .zumbi-card:nth-child(4) .zumbi-img{ object-position:center center; }
+  #zumbis .zumbi-card:nth-child(5) .zumbi-img{ object-position:center center; }
+  #zumbis .zumbi-card:nth-child(6) .zumbi-img{ object-position:center center; }
+
+}
+
+
+/* ==========================================================
+   FASE 6 · APARELHOS ESTREITOS (320–370px)
+   ========================================================== */
+
+@media (max-width:370px){
+
+  #zumbis .zumbi-card:not(:first-child){
+    grid-template-columns:76px minmax(0,1fr);
+    gap:14px;
+
+    padding:18px 0;
+  }
+
+  #zumbis .zumbi-card:not(:first-child) .zumbi-img{
+    min-height:96px;
+  }
+
+  #zumbis .zumbi-card:not(:first-child) .scene{
+    font-size:14px;
+    line-height:1.45;
+  }
+
 }
 </style>
 <script type="application/ld+json">
@@ -765,32 +1989,107 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
 
   <!-- ============== B3 · HERO DOCUMENTAL SILENCIOSO ============== -->
   <section id="hero" data-screen-label="01 Hero documental">
+
+    <!-- Fotografia de fundo -->
     <div class="hero-mosaic" aria-hidden="true">
-      <div class="ph"><img src="assets/hero-stage.webp" alt="" loading="eager" fetchpriority="high" /></div>
-      <div class="ph"><img src="assets/hero-question.webp" alt="" style="object-position:center 30%" loading="lazy" /></div>
-      <div class="ph"><img src="assets/hero-bruna.webp" alt="" style="object-position:center 25%" loading="eager" fetchpriority="high" /></div>
+      <div class="ph hero-photo-stage">
+        <img
+          src="assets/hero-stage.webp"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div class="ph hero-photo-question">
+        <img
+          src="assets/hero-question.webp"
+          alt=""
+          loading="lazy"
+        />
+      </div>
+
+      <div class="ph hero-photo-mobile">
+        <img
+          src="assets/hero-bruna.webp"
+          alt=""
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
     </div>
-    <div class="hero-overlay"></div>
-    <div class="hero-vignette"></div>
+
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-vignette" aria-hidden="true"></div>
+
     <div class="hero-content">
-      <p class="hero-eyebrow">Imersão TDAH ao Longo da Vida · 3ª Edição</p>
+
+      <p class="hero-eyebrow">
+        Imersão clínica · 3ª edição
+      </p>
+
       <h1 class="hero-display-lockup">
         <span class="hero-display-tdah">TDAH</span>
         <span class="hero-display-era">na Era Digital</span>
       </h1>
+
       <p class="hero-v4-subtitle">
-        Um dia inteiro de raciocínio clínico para diferenciar transtorno, hiperestimulação e desregulação — e conduzir casos com mais precisão.
+        Um dia inteiro para diferenciar transtorno, hiperestimulação
+        e desregulação — e conduzir casos com mais precisão.
       </p>
-      <p class="hero-audience">Para psicólogos, neuropsicólogos e psiquiatras que atendem TDAH.</p>
+
+      <p class="hero-audience">
+        Para psicólogos, neuropsicólogos e psiquiatras que atendem TDAH.
+      </p>
+
       <div class="hero-meta">
-        <div class="hero-meta-text">
-          <span>29 AGO 2026 · SÃO PAULO · PRESENCIAL</span>
-        </div>
+
+        <p class="hero-meta-text">
+          29 AGO 2026 <span aria-hidden="true">·</span> SÃO PAULO <span aria-hidden="true">·</span> PRESENCIAL
+        </p>
+
         <div class="hero-actions">
-          <a href="#experiencia" class="btn-primary btn-large">Conhecer a experiência presencial →</a>
-          <a href="#edicoes" class="btn-ghost">Ver edições anteriores <span class="arrow">→</span></a>
+          <a href="#investimento" class="btn-primary btn-large">
+            Garantir minha vaga →
+          </a>
+
+          <a href="#experiencia" class="btn-ghost">
+            Conhecer a experiência <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== FAIXA EDITORIAL MOBILE (countdown fora da topbar) ============== -->
+  <section class="mobile-event-strip" aria-label="Informações do evento">
+    <div class="mobile-event-strip-inner">
+
+      <div class="mobile-event-strip-copy">
+        <span class="mobile-event-strip-label">
+          Próximo encontro
+        </span>
+
+        <p>
+          Credenciamento 8h15 · início 9h
+        </p>
+      </div>
+
+      <div class="mobile-event-strip-time" role="group" aria-label="Tempo até o evento">
+        <div class="mobile-cd-unit">
+          <span class="mobile-cd-num" data-mobile-unit="d">—</span>
+          <span class="mobile-cd-label">dias</span>
+        </div>
+
+        <span class="mobile-cd-sep" aria-hidden="true">·</span>
+
+        <div class="mobile-cd-unit">
+          <span class="mobile-cd-num" data-mobile-unit="h">—</span>
+          <span class="mobile-cd-label">horas</span>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -1269,6 +2568,9 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   const h = el.querySelector('[data-unit="h"]');
   const m = el.querySelector('[data-unit="m"]');
   const s = el.querySelector('[data-unit="s"]');
+  // Faixa editorial mobile: vive fora de #countdown, por isso busca no document.
+  const mobileDays = document.querySelector('[data-mobile-unit="d"]');
+  const mobileHours = document.querySelector('[data-mobile-unit="h"]');
   function pad(n){return n<10?'0'+n:n;}
   function tick(){
     const now = Date.now();
@@ -1281,6 +2583,8 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
     h.textContent = pad(hours);
     m.textContent = pad(mins);
     if(s) s.textContent = pad(secs);
+    if(mobileDays) mobileDays.textContent = days;
+    if(mobileHours) mobileHours.textContent = pad(hours);
   }
   tick();
   setInterval(tick, 1000);
