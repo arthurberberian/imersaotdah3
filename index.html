@@ -1892,6 +1892,357 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
   }
 
 }
+
+
+/* ==========================================================
+   FASE 7 · ANFITRIÕES MOBILE
+   Perfis editoriais, menos "card", mais autoridade humana
+
+   Ramo mobile autocontido. A folha base ainda alcança estes
+   elementos em <=900px; o que este bloco precisa desfazer:
+
+     .anf-lattes  é uma CAIXA (border 1px + fundo + mono
+                  maiúsculo) — vira link sublinhado
+     .anf-card    é flex column (o margin-top:auto do Lattes
+                  dependia disso)
+     .anf-name em vem com font-weight:400 da base
+     h2.section-title / p.section-claim trazem max-width e
+                  text-wrap próprios
+
+   Nenhum !important: o object-position e o CTA saíram do
+   style inline do HTML e viraram regra em styles.css.
+   Desktop (>=901px) fica intacto.
+   ========================================================== */
+
+@media (max-width:900px){
+
+  /* --------------------------------------------------------
+     SEÇÃO
+     -------------------------------------------------------- */
+
+  #anfitrioes{
+    padding:
+      84px
+      var(--container-padding-mobile)
+      94px;
+  }
+
+  #anfitrioes .container{
+    position:relative;
+
+    width:100%;
+    max-width:100%;
+
+    margin:0;
+  }
+
+
+  /* --------------------------------------------------------
+     CABEÇALHO
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-head{
+    max-width:560px;
+    margin:0 0 50px;
+  }
+
+  /* display:block desliga o inline-flex da .overline — mesmo
+     tratamento do manifesto e da tensão clínica no mobile */
+  #anfitrioes .anf-head .overline{
+    display:block;
+
+    margin:0 0 24px;
+
+    font-size:9.5px;
+    line-height:1.2;
+
+    letter-spacing:.15em;
+  }
+
+  #anfitrioes .section-title{
+    max-width:100%;
+
+    margin:0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:400;
+
+    font-size:clamp(40px,10.5vw,52px);
+    line-height:1.02;
+
+    letter-spacing:-.035em;
+
+    color:var(--off-white);
+    text-wrap:pretty;
+  }
+
+  #anfitrioes .section-claim{
+    max-width:100%;
+
+    margin:14px 0 0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+
+    font-size:clamp(25px,7vw,34px);
+    line-height:1.1;
+
+    letter-spacing:-.025em;
+
+    color:var(--areia);
+    text-wrap:pretty;
+  }
+
+  #anfitrioes .section-lead{
+    max-width:33ch;
+
+    margin:24px 0 0;
+
+    font-family:var(--font-body);
+    font-weight:400;
+
+    font-size:15.5px;
+    line-height:1.65;
+
+    color:var(--azul-cinza);
+  }
+
+
+  /* --------------------------------------------------------
+     GRID VIRA SEQUÊNCIA
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-grid{
+    display:flex;
+    flex-direction:column;
+
+    gap:0;
+  }
+
+
+  /* --------------------------------------------------------
+     PERFIL
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-card{
+    display:block;
+
+    padding:0;
+
+    background:transparent;
+
+    border:0;
+    border-radius:0;
+
+    box-shadow:none;
+
+    overflow:visible;
+  }
+
+  #anfitrioes .anf-card + .anf-card{
+    margin-top:48px;
+    padding-top:48px;
+
+    border-top:1px solid rgba(224,199,163,.12);
+  }
+
+
+  /* --------------------------------------------------------
+     FOTO
+     O ::after da base (vinheta inferior) continua valendo —
+     é o mesmo acabamento do desktop.
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-photo{
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:4 / 5;
+
+    margin:0 0 24px;
+
+    overflow:hidden;
+
+    border-radius:2px;
+
+    background:var(--noite-3);
+  }
+
+  #anfitrioes .anf-photo img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    filter:
+      saturate(.88)
+      contrast(1.02)
+      brightness(.94);
+  }
+
+
+  /* --------------------------------------------------------
+     INSTITUIÇÃO
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-inst{
+    margin:0 0 10px;
+
+    font-family:var(--font-mono);
+    font-size:8.5px;
+    line-height:1.4;
+
+    letter-spacing:.13em;
+    text-transform:uppercase;
+
+    color:var(--terracota-claro);
+  }
+
+
+  /* --------------------------------------------------------
+     NOME
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-name{
+    margin:0;
+
+    font-family:var(--font-display);
+    font-style:italic;
+    font-weight:500;
+
+    font-size:clamp(29px,8vw,38px);
+    line-height:1.03;
+
+    letter-spacing:-.025em;
+
+    color:var(--off-white);
+  }
+
+  #anfitrioes .anf-name em{
+    font-style:italic;
+    font-weight:400;
+
+    color:var(--areia);
+  }
+
+
+  /* --------------------------------------------------------
+     BIO
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-bio{
+    max-width:34ch;
+
+    margin-top:20px;
+  }
+
+  #anfitrioes .anf-bio p{
+    margin:0;
+
+    font-family:var(--font-body);
+    font-size:14.5px;
+    line-height:1.65;
+
+    color:var(--azul-cinza);
+  }
+
+  #anfitrioes .anf-bio p + p{
+    margin-top:12px;
+  }
+
+  /* CRP fica discreto e muda de registro */
+  #anfitrioes .anf-bio p:last-child{
+    margin-top:18px;
+
+    font-family:var(--font-mono);
+    font-size:9px;
+    line-height:1.4;
+
+    letter-spacing:.1em;
+    text-transform:uppercase;
+
+    color:rgba(174,183,199,.62);
+  }
+
+
+  /* --------------------------------------------------------
+     LATTES
+     Base entrega uma caixa: border 1px nos 4 lados, fundo
+     translúcido e mono maiúsculo. Tudo desfeito aqui.
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-lattes{
+    display:inline-flex;
+    align-items:center;
+
+    gap:9px;
+
+    margin-top:20px;
+
+    padding:0 0 6px;
+
+    background:none;
+
+    border:0;
+    border-bottom:1px solid rgba(224,199,163,.28);
+    border-radius:0;
+
+    font-family:var(--font-body);
+    font-size:12.5px;
+    font-weight:600;
+    line-height:1.2;
+
+    letter-spacing:0;
+    text-transform:none;
+
+    color:var(--off-white);
+  }
+
+  #anfitrioes .anf-lattes img{
+    width:18px;
+    height:auto;
+
+    opacity:.78;
+  }
+
+
+  /* --------------------------------------------------------
+     CTA INFERIOR
+     Depois das duas bios o leitor acabou de receber o
+     argumento de autoridade. Botão de largura total.
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-cta{
+    display:flex;
+
+    margin-top:54px;
+  }
+
+  #anfitrioes .anf-cta .btn-primary{
+    width:100%;
+
+    justify-content:center;
+
+    min-height:54px;
+
+    padding:15px 20px;
+  }
+
+
+  /* --------------------------------------------------------
+     PONTO DE AJUSTE · CROP DOS RETRATOS
+     Conferir em 375px: retrato em 4/5 costuma pedir ajuste.
+     -------------------------------------------------------- */
+
+  #anfitrioes .anf-card:nth-child(1) .anf-photo img{ object-position:center 16%; }
+  #anfitrioes .anf-card:nth-child(2) .anf-photo img{ object-position:center 14%; }
+
+}
 </style>
 <script type="application/ld+json">
 {
@@ -2197,12 +2548,13 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
       <div class="anf-grid">
         <article class="anf-card">
           <div class="anf-photo">
-            <img src="assets/arthur-portrait.jpg" alt="Dr. Arthur Berberian" loading="lazy" style="object-position:center 18%" />
+            <img src="assets/arthur-portrait.jpg" alt="Dr. Arthur Berberian" loading="lazy" />
           </div>
           <p class="anf-inst">UNIFESP · USP · PhD Psiquiatria</p>
           <h3 class="anf-name">Arthur Berberian, <em>PhD</em></h3>
           <div class="anf-bio">
-            <p>Psicólogo e neuropsicólogo clínico, com mais de 20 anos de prática. Doutor em Psiquiatria pela UNIFESP e especialista em Neuropsicologia e TCC pela USP. Docente e supervisor clínico nas especializações em Neuropsicologia da UNIFESP e em TCC do CTC Veda.</p>
+            <p>Psicólogo e neuropsicólogo clínico, com mais de 20 anos de prática. Doutor em Psiquiatria pela UNIFESP e especialista em Neuropsicologia e TCC pela USP.</p>
+            <p>Docente e supervisor clínico nas especializações em Neuropsicologia da UNIFESP e em TCC do CTC Veda.</p>
             <p>CRP 06/86877</p>
           </div>
           <a class="anf-lattes" href="http://lattes.cnpq.br/6416386670668146" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Berberian">
@@ -2212,12 +2564,13 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
         </article>
         <article class="anf-card">
           <div class="anf-photo">
-            <img src="assets/bruna-portrait.jpg" alt="Dra. Bruna Trevisan" loading="lazy" style="object-position:center 18%" />
+            <img src="assets/bruna-portrait.jpg" alt="Dra. Bruna Trevisan" loading="lazy" />
           </div>
           <p class="anf-inst">Mackenzie · FMUSP-HC · UNIFESP · Pós-doc</p>
           <h3 class="anf-name">Bruna Trevisan, <em>PhD</em></h3>
           <div class="anf-bio">
-            <p>Psicóloga e neuropsicóloga, doutora e pós-doutora em Distúrbios do Desenvolvimento pelo Mackenzie. Especialista em TCC pelo CTC Veda. Tem 18 anos de prática dedicada ao neurodesenvolvimento e mais de mil casos clínicos supervisionados nas especializações em Neuropsicologia da FMUSP-HC e da UNIFESP.</p>
+            <p>Psicóloga e neuropsicóloga, doutora e pós-doutora em Distúrbios do Desenvolvimento pelo Mackenzie. Especialista em TCC pelo CTC Veda.</p>
+            <p>Tem 18 anos de prática dedicada ao neurodesenvolvimento e mais de mil casos clínicos supervisionados nas especializações em Neuropsicologia da FMUSP-HC e da UNIFESP.</p>
             <p>CRP 06/94301</p>
           </div>
           <a class="anf-lattes" href="http://lattes.cnpq.br/7352958048754654" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Bruna Trevisan">
@@ -2226,7 +2579,7 @@ src="https://www.facebook.com/tr?id=592122230538546&ev=PageView&noscript=1"
           </a>
         </article>
       </div>
-      <div style="display:flex;justify-content:center;margin-top:48px;">
+      <div class="anf-cta">
         <a href="#investimento" class="btn-primary">Garantir minha vaga presencial →</a>
       </div>
     </div>

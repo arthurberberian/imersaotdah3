@@ -593,7 +593,10 @@ a{color:inherit;text-decoration:none;}
 .anf-photo{
   aspect-ratio:4/5;background:var(--noite-3);overflow:hidden;margin-bottom:24px;position:relative;
 }
-.anf-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(0.75) contrast(1);}
+/* object-position vinha inline no HTML (style="object-position:center 18%").
+   Trazido para ca porque style inline vence qualquer folha: com a regra no
+   CSS, o ramo mobile ajusta o crop sem precisar de !important. */
+.anf-photo img{width:100%;height:100%;object-fit:cover;filter:saturate(0.75) contrast(1);object-position:center 18%;}
 .anf-photo::after{
   content:'';position:absolute;inset:0;
   background:linear-gradient(180deg, transparent 55%, rgba(11,18,32,0.5) 100%);
@@ -634,9 +637,13 @@ a{color:inherit;text-decoration:none;}
   background:#fff;padding:2px;border-radius:2px;
 }
 
-@media (max-width:900px){
-  .anf-grid{grid-template-columns:1fr;gap:48px;}
-}
+/* CTA ao pe da secao. Era um style inline no HTML; virou classe para o ramo
+   mobile poder redeclarar sem !important. */
+.anf-cta{display:flex;justify-content:center;margin-top:48px;}
+
+/* Mobile (<=900px) da secao #anfitrioes: ver "FASE 7 · ANFITRIOES MOBILE",
+   no <style> do index.html. Uma fonte so para o ramo mobile — nao adicionar
+   regras de .anf-grid / .anf-card aqui. */
 
 /* =================== EXPERIÊNCIA (NEW) =================== */
 #experiencia{background:var(--off-white-warm);color:var(--noite);}
